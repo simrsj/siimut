@@ -66,6 +66,8 @@
                 <option disabled="">- PILIH ROLE -</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
+                <option value="submutu">Submutu</option>
+                <option value="unit">Unit</option>
             </select>
         </div>
       </div>
@@ -106,6 +108,8 @@
                 <option disabled="">- PILIH ROLE -</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
+                <option value="submutu">Submutu</option>
+                <option value="unit">Unit</option>
             </select>
         </div>
       </div>
