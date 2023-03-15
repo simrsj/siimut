@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2023 at 05:26 AM
+-- Generation Time: Mar 15, 2023 at 09:19 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -54,9 +54,9 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1);
+(10, '2014_10_12_000000_create_users_table', 1),
+(11, '2014_10_12_100000_create_password_resets_table', 1),
+(12, '2019_08_19_000000_create_failed_jobs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` enum('admin','user') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` enum('admin','user','superadmin','submutu','unit') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -93,21 +93,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Rahmat Hidayatullah', 'admin@gmail.com', NULL, '$2y$10$8tOKJNoJfLFRUmNoawenBePYR6mIx.Dbadkl9GKXyJQ0J8GZlh3Z.', NULL, 'admin', NULL, NULL),
-(2, 'Ayane', 'ayane@gmail.com', NULL, '$2y$10$Q3yt7TxZPfG48D2GDE44mOJ14Y7Lcofl7Y/gqnlvvyV1zqih42DVq', NULL, 'admin', NULL, NULL),
-(3, 'Chika Fujiwara', 'chika@gmail.com', NULL, '$2y$10$4AA6meWjJOPAgZloy2Tyf.j1bnkmJFhqR5HekRZkVgxCDezlZer..', NULL, 'user', NULL, NULL),
-(4, 'Kotone', 'kotone@gmail.com', NULL, '$2y$10$4al4KmrHrNLShhRMMZj2Ceg6xcSK4F3v4GZTgPcoKFktBKZf529W2', NULL, 'user', NULL, NULL),
-(5, 'Rubie Weissnat', 'wunsch.dahlia@example.org', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'i5yFFVD9UV', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(6, 'Glenna Daniel', 'tcollier@example.com', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2fV7bz6NBU', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(7, 'Jazlyn Heller', 'udaniel@example.org', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'uXBzq002C4', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(8, 'Audrey Hand IV', 'predovic.aiden@example.net', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'R3rlJDM1DZ', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(9, 'Ms. Edythe Pagac', 'darrin.gaylord@example.org', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'cV8z721ccc', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(10, 'Dr. Brannon Berge II', 'isabell33@example.net', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'H8Emst7Xnv', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(11, 'Howard Cruickshank', 'usatterfield@example.org', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'W17G7oRc0d', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(12, 'Sydney Herzog Jr.', 'dock.sawayn@example.com', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'LMXOfFtXrT', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(13, 'Prof. Vada Boehm', 'mreilly@example.com', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OfxFQFHdn5', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(14, 'Rey Lakin', 'lesch.sylvester@example.net', '2023-03-14 21:17:16', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NXiYOdroAg', 'user', '2023-03-14 21:17:16', '2023-03-14 21:17:16'),
-(15, 'Rizki Egi Purnama', 'rizkiegipurnama@gmail.com', NULL, '$2y$10$K3LeBpXmeY47sWkKuMrNYOX1laH24OTlNsvRwtu328QlQUTNoMely', NULL, 'admin', '2023-03-14 21:18:58', '2023-03-14 21:18:58');
+(1, 'Rahmat Hidayatullah', 'admin@gmail.com', NULL, '$2y$10$LwRpzZIldSw/5LolKFAbAepbUcdigrvTtknh.903LxZxivoLVHKEC', NULL, 'admin', NULL, NULL),
+(2, 'Ayane', 'ayane@gmail.com', NULL, '$2y$10$Lydqe/aYeSxleMBr9.s45umk/JLzX3M0YImRmXk9VCh3etC3G7M4G', NULL, 'admin', NULL, NULL),
+(3, 'Chika Fujiwara', 'chika@gmail.com', NULL, '$2y$10$nG91BmIYy.LRGBDCwZr3ie5u9Ywe09JqNVY46sJ4xsUagqOCd0X9W', NULL, 'user', NULL, NULL),
+(4, 'Kotone', 'kotone@gmail.com', NULL, '$2y$10$80TDcDGO4ShGjKe0E.Gv1u6hiDxyVcrS2FHBWQludSCYJ8wa.oLr6', NULL, 'user', NULL, NULL),
+(7, 'Mr. Casey Abbott DVM', 'preston.bailey@example.org', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NfSKVz2xG2', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(8, 'Ettie Streich', 'littel.newton@example.org', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'hGq3t5xCAE', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(9, 'Dr. Kaden Wisozk PhD', 'pgreenfelder@example.net', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'QSIMGcDWQh', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(10, 'Mauricio Kunde', 'larry97@example.com', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2vQLL9z9HF', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(11, 'Erwin Wilkinson', 'ymedhurst@example.com', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'sejcD2cjyv', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(12, 'Reed Steuber', 'murray.shaun@example.com', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'hQgyeFQPaI', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(13, 'Alysa Smith', 'jarod.schultz@example.org', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'KazajuqLS7', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(14, 'Dr. Louie Koch DDS', 'gus.langosh@example.org', '2023-03-15 01:14:49', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'nAFsMu0OTz', 'user', '2023-03-15 01:14:49', '2023-03-15 01:14:49'),
+(15, 'Sub Mutu Manajemen', 'submutumanajemen@rsj.go.id', NULL, '$2y$10$rfDJT6arWgPDhzfQcfvbwu5u/CWgHrviJ9Mw2UVo34v1LzCAiu2YG', NULL, 'submutu', '2023-03-15 01:16:51', '2023-03-15 01:16:51');
 
 --
 -- Indexes for dumped tables
@@ -153,7 +151,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
