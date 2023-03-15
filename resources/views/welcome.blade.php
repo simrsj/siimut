@@ -3,10 +3,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-4/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('plugins/custom.css') }}">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/">CHIKADMIN</a>
+  <a class="navbar-brand" href="/">SI IMUT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -33,14 +34,14 @@
 	
 	<div class="jumbotron">
     @guest
-    <h1 class="display-4">Selamat Datang di CHIKADMIN</h1>
+    <h1 class="display-4">Selamat Datang di SI IMUT</h1>
     @endguest
 
     @auth
     <h1 class="display-4">Hello , {{ Auth::user()->name }}</h1>
     @endauth
     
-    <p class="lead">Chikadmin adalah simpel starter sb-admin-2 untuk laravel, keuntungannya adalah kita tidak harus mengintegrasikan sb-admin-2 dari awal.</p>
+    <p class="lead">SI IMUT adalah simpel starter sb-admin-2 untuk laravel, keuntungannya adalah kita tidak harus mengintegrasikan sb-admin-2 dari awal.</p>
 	  <hr class="my-4">
 
     <div class="row">
