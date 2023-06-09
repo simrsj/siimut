@@ -1,73 +1,57 @@
-## CHIKADMIN
-<p><b>
-CHIKADMIN adalah simpel starter untuk laravel dengan template sb-admin-2 , keuntungan CHIKADMIN adalah kita tidak perlu memulai integrasi,sistem login autorisasi dari awal.
-</b></p>
+# README #
 
-## Instalasi
-- download zip <a href="https://github.com/rahmathidayat9/sb-admin-2-laravel-8/archive/master.zip">disini</a> 
-- atau clone : git clone https://github.com/rahmathidayat9/sb-admin-2-laravel-8.git
+Sistem Informasi Manajemen Mutu Rumah Sakit
+Adalah aplikasi untuk memonitor mutu unit pada sebuah instansi rumah sakit.
+Dalam tiap unit terdapat indikator-indikator yang nantinya akan dilakukan
+penilaian setiap hari terhadap numerator dan denumerator. 
+Hasil akhirnya adalah dapat mengetahui nilai rata-rata capaian standar yang telah
+ditentukan sebelumnya.
 
-## Setup
-- buka direktori project di terminal anda.
-- ketikan command : cp .env.example .env (copy paste file .env.example)
-- buat database dengan nama laravel_sb_admin_2 (bebas)
-- buka file .env dengan teks editor , edit bagian DB_DATABASE= menjadi DB_DATABASE=laravel_sb_admin_2 
-(sesuaikan dengan nama database yang anda buat)
+### Informasi Pengembang ###
 
-Lalu ketik command dibawah ini : 
+* SIM - Mutu RS
+* Version: Beta 1.0
+* Author: 	Pudyasto Adi Wibowo
+* Github: 	https://github.com/pudyasto
+* Contact: 	mr.pudyasto@gmail.com
+* Follow: 	https://twitter.com/pudyastoadi
+* Like: 	https://www.facebook.com/dhyaz.cs
 
-- composer install
-- php artisan optimize:clear 
-- php artisan key:generate (generate app key)
-- php artisan migrate (migrasi database)
-- php artisan db:seed --class=UserClass (mengisi data table users) atau bisa juga php artisan db:seed (semua tabel)
+### Cara Setup Aplikasi ###
 
-## Login
-- Email : admin@gmail.com
-- Password : password
+* Import database/db_simmutu.sql ke server mysql
+* Copy semua file dengan prefix *.copy.php menjadi *.php
+    - config/config.copy.php
+    - config/database.copy.php
+    - config/ion_auth.copy.php
+* Sesuaikan konfigurasi
+    - config/config.php
+    - config/database.php
+    - config/ion_auth.php
+* Jalankan Aplikasi
 
-## Fitur
-- Autentikasi dengan Laravel Auth
-- Autorisasi dengan Laravel Gate
-- Yajra DataTable Serverside
-- jquery ajax crud dengan datatable serverside example
+* Masukkan User dan Password Berikut ini
+    - User : administrator
+    - Pass : 3335
 
-## Preview
+### Deskripsi komponen yang digunakan ###
 
-<b>- Home<b>
+* AdminBSB HTML Template - https://github.com/gurayyarar/AdminBSBMaterialDesign
+* Codeigniter 3 - https://codeigniter.com/
+* HMVC - https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc
+* Template Engine - https://github.com/philsturgeon/codeigniter-template
+* Ion Auth - https://github.com/benedmunds/CodeIgniter-Ion-Auth
 
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(837).png?raw=true">
-<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(837).png?raw=true">
-</a>
-<br><br>
+### Penting ###
+Penggunaan aplikasi ini tidak dipungut biaya sepeserpun (Gratis).
+Namun aplikasi ini tidak berhak diperjual-belikan, anda boleh menggunakan untuk keperluan komersial
+seperti penggunaan di Rumah Sakit guna keperluan Akreditasi dalam memonitor Penjaminan Mutu Unit.
+Jika ingin melakukan donasi untuk mendukung pengembangan aplikasi ini silahkan hubungi pihak pengembang.
+Terima Kasih
+Salam Hangat
 
-<b>- Login<b>
 
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
-	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
-</a>
-<br><br>
 
-<b>- Dashboard<b>
 
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(830).png?raw=true">
-	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(830).png?raw=true">
-</a>
-<br><br>
-
-<b>- Profile<b>
-
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(831).png?raw=true">
-	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(831).png?raw=true">
-</a>
-<br><br>
-
-<b>- Yajra Crud Datatable<b>
-
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
-	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
-</a>
-<br><br>
-
-## Author
-- Rahmat Hidayatullah
+Pudyasto Adi Wibowo
+mr.pudyasto@gmail.com
