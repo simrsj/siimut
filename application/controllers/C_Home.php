@@ -58,27 +58,25 @@ class C_Home extends CI_Controller {
 	}
 	
     function checklogin(){
+	
 		$username = $this->input->post('username');
 		$password = md5($this->input->post('password'));
 		$result = $this->M_User->check_login($username,$password)->row();
-		$tahun = $this->input->post('tahun');
+		// var_dump($username);die;
 		// if exist
 		if(count($result) > 0){
 			$data= array(
 				'id_user'=>$result->id_user,
-				'unit_kerja'=>$result->unit_kerja,
+				'nama_user'=>$result->nama_user,
 				'username'=>$result->username,
-				'role'=>$result->role,
-				'unit_kerja_lengkap'=>$result->unit_kerja_lengkap,
-				'bidang'=>$result->bidang,
-				'direksi'=>$result->direksi,
-				'tahun'=>$tahun,
+				'id_jenis'=>$result->id_jenis,
+				'email'=>$result->email,
 				'session_id'=>$this->session->userdata('session_id'),
 				'is_login'=>TRUE,
 			);
       //$data = ['status' => true, 'message' => 'SELAMAT DATANG DI '.$data->unit_kerja];
 			$this->session->set_userdata($data);
-		  	redirect('RKBU/Dashboard');
+		  	redirect('Mutu/Dashboard');
 		}else{
         $data = ['status' => true, 'message' => 'Username dan Password Salah'];
       

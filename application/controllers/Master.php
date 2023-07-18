@@ -65,22 +65,52 @@ class Master extends CI_Controller {
 			redirect('C_Home/index');
 		}
     }
-    public function pengguna(){
+    public function User(){
         $this->session_check();
 
         $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
+        // $role =  $this->session->userdata('role');
         $result =  $this->M_User->getById($id_user);
         
         $data['profile'] = $result;
         
         
-        $this->load->view('Master/pengguna',$data);
+        $this->load->view('Master/User',$data);
+    }
+    public function Kamus(){
+        $this->session_check();
+
+        $id_user =  $this->session->userdata('id_user');
+        // $role =  $this->session->userdata('role');
+        $result =  $this->M_User->getById($id_user);
+        
+        $data['profile'] = $result;
+        
+        
+        $this->load->view('Master/Kamus',$data);
     }
     public function ambil_pengguna(){
         $baru =  $this->M_Master->ambil_pengguna();
         $data['data']=$baru;
-		echo json_encode($data);
+       echo json_encode($data);
+
+    }
+    public function ambil_grup(){
+        $baru =  $this->M_Master->ambil_grup();
+        $data['data']=$baru;
+       echo json_encode($data);
+
+    }
+    public function ambil_status(){
+        $baru =  $this->M_Master->ambil_status();
+        $data['data']=$baru;
+       echo json_encode($data);
+
+    }
+    public function ambil_jenis(){
+        $baru =  $this->M_Master->ambil_jenis();
+        $data['data']=$baru;
+       echo json_encode($data);
 
     }
     public function ambil_program(){

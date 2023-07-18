@@ -6,30 +6,20 @@ class M_User extends CI_Model {
 	private $_table = "users";
 
     // public $id_user;
-    // public $name;
+    // public $nama_user;
+    // public $id_grup;
     // public $username;
     // public $password;
     // public $email;
-    // public $bio;
-    // public $hobby;
-    // public $gender;
-    // public $picture;
+    // public $id_grup;
+    // public $nama_pic;
+    // public $kontak_pic;
+    // public $status;
+    // public $id_jenis;
+    // public $parent;
     
 
-	public function insert()
-	{
-		$post = $this->input->post();
-        $this->name = $post["name"];
-        $this->username = $post["username"];
-        $this->email = $post["email"];
-        $this->bio = $post["bio"];
-        $this->hobby = $post["hobby"];
-        $this->gender = $post["gender"];
-        $this->password = $post["password"];
-        $this->picture = $this->UploadImage();
-        
-        $this->db->insert($this->_table,$this);
- 	}
+	
  	public function check_login($user,$pass)
  	{
  		

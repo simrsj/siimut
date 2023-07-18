@@ -1,8 +1,8 @@
-<!-- Sticky Footer -->
-<footer class="sticky-footer" style='z-index:-999 !important'>
-  <div class="container my-auto">
-    <div class="copyright text-center my-auto">
-      <span>Copyright  <?php echo SITE_NAME ." ". Date('Y') ?> - Narahubung Tentang Aplikasi : <b>Egi [0896-5727-3860]</b> </span>
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2023 <a href="https://adminlte.io">Siimut</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 2.0.0
     </div>
-  </div>
-</footer>
+  </footer>

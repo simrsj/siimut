@@ -1,144 +1,122 @@
-<!-- Sidebar -->
-<ul class="sidebar navbar-nav">
-    <!-- <li class="nav-item ">
-        <a class="nav-link" href="#">
-            <form action="#">
-                <select name="tahun" id="tahun" class="form-control" onChange ='Gantitahun()'>
-                    <?php if(!$_SESSION['tahun']) {?>
-                        <option value='<?php echo $_SESSION['tahun']; ?>' selected><?php echo $_SESSION['tahun']; ?></option>
-                    <?php } ?>
-                        <option value='2023'>2023</option>
-                        <option value='2022'>2022</option>
-                </select>
-            </form>
-        </a>
-    </li> -->
-    <li class="nav-item <?php echo $this->uri->segment(2) == 'Dashboard' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Rkbu/Dashboard'); ?>">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Halaman Depan</span>
-        </a>
-    </li>
-    <!-- <li class="nav-item <?php echo $this->uri->segment(1) == 'Pegawai' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Pegawai/index'); ?>">
-            <i class="fas fa-copy"></i>
-            <span>Belanja Pegawai</span>
-        </a>
-    </li>
-    <li class="nav-item <?php echo $this->uri->segment(1) == 'Pengadaan' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Pengadaan/index'); ?>">
-            <i class="fas fa-copy"></i>
-            <span>Belanja Barang & Jasa</span>
-        </a>
-    </li>
-    <li class="nav-item <?php echo $this->uri->segment(1) == 'Modal' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Modal/Index'); ?>">
-            <i class="fas fa-copy"></i>
-            <span>Belanja Modal </span>
-        </a>
-    </li> -->
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+         <a href="<?php echo base_url('Mutu/Dashboard');?>" class="brand-link">
+      <!-- <img src="<?= base_url('dist/img/AdminLTELogo.png');?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+      <span class="brand-text font-weight-light">Aplikasi Mutu</span>
+    </a>
+ 
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <!-- <img src="<?= base_url('dist/img/user2-160x160.jpg');?>" class="img-circle elevation-2" alt="User Image"> -->
+          <!-- <h2>SIIMUT</h2> -->
+        </div>
+         <div class="info">
+          <a href="#" class="d-block">Hai, <?php echo $profile->nama_user;?> </a>
+        </div> 
+      </div>
 
-  
-   
-    <!-- <li class="nav-item dropdown <?php if($this->uri->segment(1) == 'Pemeliharaan') { echo 'show';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'show';} else {echo '';}; ?>">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="<?php if($this->uri->segment(1) == 'Pemeliharaan') { echo 'true';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'true';} else {echo 'false';}; ?>">
-           <i class="fas fa-fw fa-bars"></i>
-            <span>Rekapitulasi</span>
-        </a>
-        <div class="dropdown-menu <?php if($this->uri->segment(1) == 'Pemeliharaan') { echo 'show';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'show';} else {echo '';}; ?>" aria-labelledby="pagesDropdown" style="background-color:#ebebeb !important;border: 0px;">
-            <a class="dropdown-item  dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Pemeliharaan' ? 'active': '' ?> "" href="<?php echo base_url('Pemeliharaan/index'); ?>" >
-            <i class="fas fa-fw fa-genderless"></i>
-            <span>Pemeliharaan</span></a>
-            
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Pengadaan' ? 'active': '' ?>" href="<?php echo base_url('Pengadaan/index'); ?>" >
-            <i class="fas fa-fw fa-genderless"></i>
-            <span>Pengadaan</span></a>
-            
+      <!-- SidebarSearch Form -->
+      <!-- <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
-    </li>
-    -->
-    <li class="nav-item dropdown <?php if($this->uri->segment(1) == 'Pegawai') { echo 'show';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'show';} elseif($this->uri->segment(1) == 'Modal'){ echo 'show';} else {echo '';}; ?> ">
-        <a class="nav-link <?php if($this->uri->segment(1) == 'Pegawai') { echo 'active';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'active';} elseif($this->uri->segment(1) == 'Modal'){ echo 'active';} else {echo '';}; ?>  dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="far fa-copy"></i>
-            <span>Usulan Kebutuhan</span>
-        </a>
-        <!--  -->
-        <div class="dropdown-menu <?php if($this->uri->segment(1) == 'Pegawai') { echo 'show';} elseif($this->uri->segment(1) == 'Pengadaan'){ echo 'show';} elseif($this->uri->segment(1) == 'Modal'){ echo 'show';}  elseif($this->uri->segment(1) == 'Rekening'){ echo 'show';} else {echo '';}; ?> " aria-labelledby="pagesDropdown" style="background-color:#ebebeb !important;border: 0px;">
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Pegawai' ? 'active': '' ?>" href="<?php echo base_url('Pegawai/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Pegawai</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Pengadaan' ? 'active': '' ?>" href="<?php echo base_url('Pengadaan/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Barang & Jasa</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Modal' ? 'active': '' ?>" href="<?php echo base_url('Modal/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Modal</span></a>
-            <?php if($_SESSION['tahun']==2023){ ?>
-                <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Rekening' ? 'active': '' ?>" href="<?php echo base_url('Rekening/Index') ?>"><i class="far fa-file-alt"></i> <span>Kode Rekening</span></a>
+      </div> -->
 
-            <?php } ?>
-            
-        </div>
-    </li> 
-    <li class="nav-item <?php echo $this->uri->segment(1) == 'Status' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Status/Index'); ?>">
-        <i class="fa-solid fa-list"></i>
-             <span> Status Usulan</span>
-        </a>
-    </li>   
-    <li class="nav-item <?php echo $this->uri->segment(2) == 'Rekapitulasi' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('Rkbu/Rekapitulasi'); ?>">
-        <i class="fa-solid fa-print"></i>
-            <span> Cetak Rekapitulasi</span>
-        </a>
-    </li>  
-     <li class="nav-item dropdown <?php if($this->uri->segment(1) == 'Master') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?> ">
-        <a class="nav-link <?php if($this->uri->segment(1) == 'Master') { echo 'active';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'active';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'active';} else {echo '';}; ?>  dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fa-solid fa-table"></i>
-               <span>Data Pendukung</span>
-        </a>
-        <div class="dropdown-menu <?php if($this->uri->segment(1) == 'Master') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?>" aria-labelledby="pagesDropdown" style="background-color:#ebebeb !important;border: 0px;">
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Program' ? 'active': '' ?>" href="<?php echo base_url('Master/Program') ?>"><i class="far fa-file-alt"></i> <span>Program</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Kegiatan' ? 'active': '' ?>" href="<?php echo base_url('Master/Kegiatan') ?>"><i class="far fa-file-alt"></i> <span>Kegiatan</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Subkegiatan' ? 'active': '' ?>" href="<?php echo base_url('Master/Subkegiatan') ?>"><i class="far fa-file-alt"></i> <span>SubKegiatan</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Uraian' ? 'active': '' ?>" href="<?php echo base_url('Master/Uraian') ?>"><i class="far fa-file-alt"></i> <span>Uraian</span></a>
-            
-        </div>
-    </li> 
-    <?php if($this->session->userdata('role') == 'Admin'){ ?>       
-    <!-- <li class="nav-item dropdown <?php if($this->uri->segment(1) == 'Pegawairtp') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?> ">
-        <a class="nav-link <?php if($this->uri->segment(1) == 'Pegawairtp') { echo 'active';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'active';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'active';} else {echo '';}; ?>  dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-tasks"></i>
-            <span>Persetujuan RTP</span>
-        </a>
-<div class="dropdown-menu <?php if($this->uri->segment(1) == 'Pegawairtp') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?>" aria-labelledby="pagesDropdown" style="background-color:#ebebeb !important;border: 0px;">
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Pegawairtp' ? 'active': '' ?>" href="<?php echo base_url('Pegawairtp/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Pegawai</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Barjasrtp' ? 'active': '' ?>" href="<?php echo base_url('Barjasrtp/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Barang & Jasa</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(1) == 'Modalrtp' ? 'active': '' ?>" href="<?php echo base_url('Modalrtp/Index') ?>"><i class="far fa-file-alt"></i> <span>Belanja Modal</span></a>
-            
-        </div>  
-    </li> -->
-    <li class="nav-item dropdown <?php if($this->uri->segment(1) == 'Master') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?> ">
-        <a class="nav-link <?php if($this->uri->segment(1) == 'Master') { echo 'active';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'active';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'active';} else {echo '';}; ?>  dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fa-solid fa-gears"></i>
-             <span>Master</span>
-        </a>
-        <div class="dropdown-menu <?php if($this->uri->segment(1) == 'Master') { echo 'show';} elseif($this->uri->segment(1) == 'Barjasrtp'){ echo 'show';} elseif($this->uri->segment(1) == 'Modalrtp'){ echo 'show';} else {echo '';}; ?>" aria-labelledby="pagesDropdown" style="background-color:#ebebeb !important;border: 0px;">
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Pengguna' ? 'active': '' ?>" href="<?php echo base_url('Master/Pengguna') ?>"><i class="far fa-user"></i> <span>Pengguna</span></a>
-            <!-- <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Import' ? 'active': '' ?>" href="<?php echo base_url('Master/Import') ?>"><i class="far fa-file-alt"></i> <span>Import Permen 50</span></a> -->
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Program' ? 'active': '' ?>" href="<?php echo base_url('Master/Program') ?>"><i class="far fa-file-alt"></i> <span>Program</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Kegiatan' ? 'active': '' ?>" href="<?php echo base_url('Master/Kegiatan') ?>"><i class="far fa-file-alt"></i> <span>Kegiatan</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Subkegiatan' ? 'active': '' ?>" href="<?php echo base_url('Master/Subkegiatan') ?>"><i class="far fa-file-alt"></i> <span>SubKegiatan</span></a>
-            <a class="dropdown-item dropdown-bl-mode <?php echo $this->uri->segment(2) == 'Uraian' ? 'active': '' ?>" href="<?php echo base_url('Master/Uraian') ?>"><i class="far fa-file-alt"></i> <span>Uraian</span></a>
-            
-        </div>
-    </li>
-    
-    <?php } ?>
-    <li class="nav-item <?php echo $this->uri->segment(1) == 'Buku Petunjuk' ? 'active': '' ?>">
-        <a class="nav-link" href="<?php echo base_url('assets/file/buku_petunjuk_rkbu.pptx'); ?>">
-        <i class="fas fa-book"></i>
-            <span>Buku Petunjuk</span>
-        </a>
-    </li>
-</ul>
-
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!-- MENU OPEN -->
+               <!-- <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="./index2.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dashboard v2</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a href="<?php echo base_url('C_Home/Logout');?>" class="nav-link ">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Logout
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Mutu</li>
+               <li class="nav-item">
+                <a href="<?php echo base_url('Mutu/Dashboard');?>" class="nav-link <?php echo $this->uri->segment(2) == 'Dashboard' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url('Indikator/Index');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Indikator' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-star"></i>
+              <p>
+                Indikator
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+         
+          
+          <li class="nav-header">Pengaturan</li>
+          <?php if($profile->id_grup ==1){?>
+          <li class="nav-item">
+            <a href="<?php echo base_url('Master/User');?>" class="nav-link <?php echo $this->uri->segment(2) == 'User' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-user-alt"></i>
+              <p>
+                User
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a href="<?php echo base_url('Master/Kamus');?>" class="nav-link <?php echo $this->uri->segment(2) == 'Kamus' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Kamus Indikator
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+          
+          <!-- <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Gallery
+              </p>
+            </a>
+          </li>
+          -->
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class RKBU extends CI_Controller {
+class Mutu extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -32,18 +32,18 @@ class RKBU extends CI_Controller {
 	{
 		$this->session_check();
 		$id_user =  $this->session->userdata('id_user');
-		$bidang =  $this->session->userdata('bidang');
-		$data['role'] =  $this->session->userdata('role');
-		$data['tahun'] =  $this->session->userdata('tahun');
+		$nama_user =  $this->session->userdata('nama_user');
+		// $data['role'] =  $this->session->userdata('role');
+		// $data['tahun'] =  $this->session->userdata('tahun');
 		$result =  $this->M_User->getById($id_user);
-		$data['totalanggaran'] =  $this->M_User->totalanggaransemua($id_user,$bidang,$data['role']);
-		$data['belanjapegawai'] =  $this->M_User->totalbelanjapegawai($id_user,$bidang,$data['role']);
-		$data['belanjamodal'] =  $this->M_User->totalbelanjamodal($id_user,$bidang,$data['role']);
-		$data['belanjabarjas'] =  $this->M_User->totalbelanjabarjas($id_user,$bidang,$data['role']);
+		// $data['totalanggaran'] =  $this->M_User->totalanggaransemua($id_user,$bidang,$data['role']);
+		// $data['belanjapegawai'] =  $this->M_User->totalbelanjapegawai($id_user,$bidang,$data['role']);
+		// $data['belanjamodal'] =  $this->M_User->totalbelanjamodal($id_user,$bidang,$data['role']);
+		// $data['belanjabarjas'] =  $this->M_User->totalbelanjabarjas($id_user,$bidang,$data['role']);
 		$data['profile'] = $result;
 		//$posts =  $this->M_Post->gettimeline();
 		//$data['posts'] = $posts;
-		$this->load->view('Rkbu/Dashboard',$data);
+		$this->load->view('Mutu/Dashboard',$data);
 	}
 	public function tes()
 	{

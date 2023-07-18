@@ -3,7 +3,7 @@
 
 
 <head>
-<?php $this->load->view("admin/_partials/head.php"); ?>
+<?php $this->load->view("home/_partials/head.php"); ?>
 
  </head>
 
@@ -11,9 +11,9 @@
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
-  <?php $this->load->view("admin/_partials/preload.php"); ?>
-  <?php $this->load->view("admin/_partials/navbar.php"); ?>
-  <?php $this->load->view("admin/_partials/sidebar.php"); ?>
+  <?php $this->load->view("home/_partials/preload.php"); ?>
+  <?php $this->load->view("home/_partials/navbar.php"); ?>
+  <?php $this->load->view("home/_partials/sidebar.php"); ?>
   
   
   
@@ -29,7 +29,7 @@
             <h1 class="m-0">Dashboard v2</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <?php $this->load->view("admin/_partials/breadcrumb.php"); ?>
+            <?php $this->load->view("home/_partials/breadcrumb.php"); ?>
             
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -878,8 +878,8 @@
  
 
 </div>
-<?php $this->load->view("admin/_partials/control_sidebar.php"); ?>
-<?php $this->load->view("admin/_partials/footer.php"); ?>
-<?php $this->load->view("admin/_partials/js.php"); ?>
+<?php $this->load->view("home/_partials/control_sidebar.php"); ?>
+<?php $this->load->view("home/_partials/footer.php"); ?>
+<?php $this->load->view("home/_partials/js.php"); ?>
 </body>
 </html>

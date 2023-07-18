@@ -1,31 +1,26 @@
 <!-- Halaman Pengadaan  -->
 <script type="text/javascript">
-    var role = "<?= $profile->role ?>";
-    var unit_kerja = "<?= $profile->unit_kerja ?>";
+    var nama_user = "<?= $profile->nama_user ?>";
     var id_user = "<?= $profile->id_user ?>";
     //console.log(id_role);
 
-    var uratable="",kegtable="",ptable="",subtable="",protable="",persetujuantable="";
-    var edit="";
-    var idpermohonan="";
+    // var uratable="",kegtable="",ptable="",subtable="",protable="",persetujuantable="";
+    // var edit="";
+    // var idpermohonan="";
 
     $(document).ready(function(){
 
 
-        //$('#id_kegiatan').select2({tags: true, 'width': 50%});
+        // //$('#id_kegiatan').select2({tags: true, 'width': 50%});
       
-        //$('#id_subkegiatan').select2({'width': '-webkit-fill-available'});
-        //$('#id_subkegiatan').select2({'width': '-webkit-fill-available'});
-        $('#id_program').select2({'width': '-webkit-fill-available'});
-        $('#id_kegiatan').select2({'width': '-webkit-fill-available'});
-        //$('#id_kegiatan').select2({'width': '-webkit-fill-available'});
-        $('#p_unit_kerja').html((unit_kerja).toUpperCase());
+        // //$('#id_subkegiatan').select2({'width': '-webkit-fill-available'});
+        // //$('#id_subkegiatan').select2({'width': '-webkit-fill-available'});
+        // $('#id_program').select2({'width': '-webkit-fill-available'});
+        // $('#id_kegiatan').select2({'width': '-webkit-fill-available'});
+        // //$('#id_kegiatan').select2({'width': '-webkit-fill-available'});
+        // $('#p_nama_user').html((nama_user).toUpperCase());
                           
-        
-        ambilprogram();
-        ambilkegiatan();
-        ambiluraian();
-        
+   
             
         
           
@@ -47,12 +42,10 @@
                        
                         row.push({
                           'no'                : i,
-                          'unit_kerja'        : response.data[x].unit_kerja,
-                          'unit_kerja_lengkap'        : response.data[x].unit_kerja_lengkap,
+                          'nama_user'        : response.data[x].nama_user,
                           'username'     : response.data[x].username,
-                          'password'    : response.data[x].password,
-                          'role'    : response.data[x].role,
-                          'blokir'    : response.data[x].isblokir,
+                          'role'    : response.data[x].id_grup,
+                          'bagian'    : response.data[x].isblokir,
                           'status'     : response.data[x].status,
                           'aksi'              : button
                         });
@@ -69,12 +62,13 @@
             },
             columns : [ 
               {'data': 'no'},
-              {'data': 'unit_kerja'},
+              {'data': 'nama_user'},
               {'data': 'username'},
               {'data': 'role'},              
-              {'data': 'blokir','render':
+              {'data': 'bagian'},              
+              {'data': 'status','render':
                   function (data, type, full) {
-                      if(full.blokir == 0 ){
+                      if(full.id_jenis == 0 ){
                           return "<span class='badge badge-info'>Akses Dibuka</span>";
                         }else{
                             
@@ -92,6 +86,7 @@
                     {  targets: 3, width: '10%' }, 
                     {  targets: 4, width: '10%' }, 
                     {  targets: 5, width: '10%' }, 
+                    {  targets: 6, width: '10%' }, 
                 
                 
                  ] ,
@@ -475,16 +470,9 @@
 
     });            
                         
-     dptable = $('#DetailPengadaanTable').DataTable( {
-        'scrollX'   :true,
-        
-    });
     
-    persetujuantable = $('#PersetujuanTable').DataTable( {
-        'scrollX'   :true,
-        
-            } );
-
+    
+    
      $('#Modal_Add').on('shown.bs.modal', function () {
             dpttable.columns.adjust();
     });

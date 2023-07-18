@@ -1,68 +1,39 @@
-<!-- Ubah Passwrod -->
+<!-- ./wrapper -->
 
-<!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url('assets/jquery/jquery.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/select2/dist/js/select2.min.js') ?>"/></script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="<?= base_url('plugins/jquery/jquery.min.js');?>"></script>
+<!-- Bootstrap -->
+<script src="<?= base_url('plugins/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
+<!-- overlayScrollbars -->
+<script src="<?= base_url('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js');?>"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url('dist/js/adminlte.js');?>"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="<?php echo base_url('assets/jquery-easing/jquery.easing.min.js') ?>"></script>
-<!-- Page level plugin JavaScript-->
-<!-- <script src="<?php echo base_url('assets/chart.js/Chart.min.js') ?>"></script> -->
-<script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
-<script src="<?php echo base_url('assets/datatables/dataTables.rowGroup.min.js') ?>"></script>
-<script src="<?php echo base_url('assets/datatables/dataTables.bootstrap4.js') ?>"></script>
-<!-- Custom scripts for all pages-->
-<script src="<?php echo base_url('js/sb-admin.min.js') ?>"></script>
-<!-- Demo scripts for this page-->
-<script src="<?php echo base_url('js/demo/datatables-demo.js') ?>"></script>
-<!-- Tata -->
-<script src="<?php echo base_url('assets/tata-master/dist/tata.js') ?>"></script>
-<!-- <script src="<?php echo base_url('js/demo/chart-area-demo.js') ?>"></script> -->
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="<?= base_url('plugins/jquery-mousewheel/jquery.mousewheel.js');?>"></script>
+<script src="<?= base_url('plugins/raphael/raphael.min.js');?>"></script>
+<script src="<?= base_url('plugins/jquery-mapael/jquery.mapael.min.js');?>"></script>
+<script src="<?= base_url('plugins/jquery-mapael/maps/usa_states.min.js');?>"></script>
+<!-- ChartJS -->
+<script src="<?= base_url('plugins/chart.js/Chart.min.js');?>"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	   	$('#btn_ubahpassword').click(function() {
-			var data =$('#ubah_password').serialize()
-			var pass = $('#pass').val();
-			var pass2 = $('#k_pass').val();						
-			if (pass != pass2) {				
-				alert("password tidak sama!");
-			}else{
-                
-				$.ajax({
-                type : "POST",
-                url  : "<?php echo site_url('C_Home/ubahpassword')?>",
-                data : data,
-                success: function(response){
-					// console.log("masuk");
-                    $('#pass').val("");
-                    $('#k_pass').val("");
-                    $('#flashmessage').html('<span class=alert-success text-center>Password Anda Sudah Berubah, Harap diingat yaa :D<span>');
-                },
-				error: function(response){
-					console.log("keluar");
-					// console.log(response);
-					$('#flashmessage').html('<span class=alert-danger text-center>Ubah Password Gagal <span>');
-                    
-                }
-				//$('#Modal_Password').modal('hide');
-         
-            });
-                // echo "eksekusi";
-            }
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url('plugins/datatables/jquery.dataTables.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-responsive/js/dataTables.responsive.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-buttons/js/dataTables.buttons.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-buttons/js/buttons.bootstrap4.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/jszip/jszip.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/pdfmake/pdfmake.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/pdfmake/vfs_fonts.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-buttons/js/buttons.html5.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-buttons/js/buttons.print.min.js');?>"></script>
+<script src="<?php echo base_url('plugins/datatables-buttons/js/buttons.colVis.min.js');?>"></script>
+<!-- TATA MASETER -->
+<script src="<?php echo base_url('plugins/tata-master/dist/tata.js');?>"></script>
+<!-- SELECT 2 -->
+<script src="<?php echo base_url('plugins/select2/js/select2.full.js');?>"></script>
 
-		});
-
-		
-
-	});
-	function Gantitahun(){
-			$('#tahun').on('change', function() {
-				alert( this.value );
-			});
-
-		}
-</script>
-
-      

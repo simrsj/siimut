@@ -57,11 +57,26 @@ class M_Master extends CI_Model {
     public function ambil_pengguna(){
       $data = $this->input->post();
       $sql = "SELECT * FROM Users
-                where Users.role != 'Admin'  ";
+                where Users.id_grup != '1'  ";
 
 
     return $this->db->query($sql)->result();
             
+    }
+    public function ambil_grup(){
+        var_dump("grup");
+        $sql = "SELECT * FROM groups";
+        return $this->db->query($sql)->result();        
+    }
+    public function ambil_status(){
+        var_dump("grup2");
+        $sql = "SELECT * FROM status";
+        return $this->db->query($sql)->result();        
+    }
+    public function ambil_jenis(){
+        var_dump("grup3");
+      $sql = "SELECT * FROM m_jenis";
+        return $this->db->query($sql)->result();        
     }
     public function ambil_subkegiatan(){
     
@@ -993,17 +1008,20 @@ class M_Master extends CI_Model {
     {
         // var_dump($id);die;
         $post = $this->input->post();
-        //var_dump($post);die;
+        // var_dump($post);die;
         
         
-        $this->unit_kerja = $post["unit_kerja"];
-        $this->unit_kerja_lengkap = $post["ukl"];
+        $this->nama_user = $post["nama_user"];
+        $this->id_grup = $post["grup"];
         $this->username = $post["username"];
         $this->password = md5($post["pass"]);
-        $this->role = $post["role"];
-        $this->isblokir = $post["blokir"];
-        $this->bidang = $post["bidang"];
-        $this->direksi = $post["direksi"];
+        $this->id_jenis = $post["jenis"];
+        $this->nama_pic = $post["namapic"];
+        $this->kontak_pic = $post["kontakpic"];
+        $this->parent = $post["parent"];
+        $this->email = $post["email"];
+        $this->status = $post["status"];
+        $this->isdeleted = 0;
         $this->create_at = date('Y-m-d');
         $this->modified_at = '';
         $this->delete_at = '';
@@ -1033,11 +1051,11 @@ class M_Master extends CI_Model {
         
         
         $this->unit_kerja = $post["e_unit_kerja"];
-        $this->unit_kerja_lengkap = $post["e_ukl"];
+        $this->grup = $post["e_grup"];
         $this->username = $post["e_username"];
         $this->password = md5($post["e_pass"]);
-        $this->role = $post["e_role"];
-        $this->isblokir = $post["e_blokir"];
+        $this->jenis = $post["e_jenis"];
+        $this->namapic = $post["e_namapic"];
         $this->bidang = $post["e_bidang"];
         $this->direksi = $post["e_direksi"];
         $this->create_at = date('Y-m-d');
