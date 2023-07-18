@@ -6,9 +6,7 @@ $(document).ready(function(){
          $('#grup').select2({'width': '-webkit-fill-available'});
          $('#status').select2({'width': '-webkit-fill-available'});
          $('#jenis').select2({'width': '-webkit-fill-available'});
-        ambilgrup();
-        ambilstatus();
-        ambiljenis();
+      
       
         ptable = $('#PenggunaTable').DataTable( {
             'processing'	: true,
@@ -59,6 +57,10 @@ $(document).ready(function(){
              ],
                  
         } );
+
+          ambilgrup();
+        ambilstatus();
+        ambiljenis();
     });
      //Save Pengguna
             $('#form-tambah-pengguna').submit(function() {
@@ -104,6 +106,34 @@ $(document).ready(function(){
                 return false;   
                            
             })
+            function BukaEditPengguna(id){
+           //console.log(id);
+            $.ajax({
+                type:"POST",
+                url  : "<?php echo base_url('Master/get_id_pengguna')?>",
+                dataType : "JSON",
+                data : {id:id},
+                        success: function(data){
+                            console.log(data[0]);
+                                                
+                            $('#e_id_user').val(data[0].id_user);
+                            $('#e_unit_kerja').val(data[0].unit_kerja);
+                            $('#e_ukl').val(data[0].unit_kerja_lengkap);
+                            $('#e_username').val(data[0].username);
+                            $('#e_pass').val(data[0].password);
+                            $('#e_role').val(data[0].role);
+                            $('#e_blokir').val(data[0].isblokir);
+                            $('#e_bidang').val(data[0].bidang);
+                            $('#e_direksi').val(data[0].direksi);
+                            
+                            $('#Modal_Edit_Pengguna').modal('show');
+                            
+                        }
+                    });
+            return false;
+
+            
+        }
             $('#form-edit-pengguna').submit(function() {
            // console.log('xx');
                 var data =$('#form-edit-pengguna').serialize();
@@ -158,7 +188,7 @@ $(document).ready(function(){
                         $('#grup').append('<option value="0">- Pilih Grup -</option>');
                         
                         $.each(response.data, function(key,value){
-                                $('#grup').append(
+                                $('#Modal_Add #grup').append(
                                     $('<option></option>').val(value['id']).html(value['name'])
                                 );
                         });        

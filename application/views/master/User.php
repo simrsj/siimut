@@ -96,8 +96,12 @@
                                 <input type="text" name="nama_user" id="nama_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama User" required>
                               </div>
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Grup</label>
+                                <label class="col-md-12 col-form-label mini-text">Role</label>
                                 <select name="grup" id="grup" class="form-control">
+                                  <option >- Pilih Role -<option>
+                                  <option value="1">Administrator<option>
+                                  <option value="3">PIC Mutu<option>
+                                  <option value="4">PJ Mutu<option>
                                 </select>
                               </div>
                               <div class="col-md-6">
@@ -106,37 +110,45 @@
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Password</label>
-                                <input type="password" name="pass" id="pass" class="form-control" required>
+                                <input type="password" name="e_pass" id="e_pass" class="form-control" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Jenis</label>
                                 <select name="jenis" id="jenis"  class="form-control">
+                                   <option >- Pilih Jenis -<option>
+                                  <option value="3">Area Klinis<option>
+                                  <option value="4">Area Manajemen<option>
+                                  <option value="5">Area SKP<option>
                                 </select>
                               </div>
                                <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Status</label>
-                                <select name="status" id="status"  class="form-control">
+                                <select name="e_status" id="e_status"  class="form-control">
+                                   <option >- Pilih Status -<option>
+                                  <option value="1">Aktif<option>
+                                  <option value="2">Tidak Aktif<option>
+                                  
                                 </select>
                               </div>
                              
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
-                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="namapic" required>
+                                <input type="text" name="e_namapic" id="e_namapic" class="form-control" placeholder="namapic" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Kontak PIC</label>
-                                <input type="text" name="kontakpic" id="kontakpic" class="form-control" placeholder="Kontak PIC" required>
+                                <input type="text" name="e_kontakpic" id="e_kontakpic" class="form-control" placeholder="Kontak PIC" required>
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Parent</label>
-                                <input type="text" name="parent" id="parent" class="form-control" placeholder="parent" required>
+                                <input type="text" name="e_parent" id="e_parent" class="form-control" placeholder="parent" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
+                                <input type="text" name="e_email" id="e_email" class="form-control" placeholder="email" required>
                               </div>
                               
                               
@@ -159,13 +171,11 @@
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Pengguna</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                     <div>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" name="btn-batal-pengguna" id="btn-batal-pengguna">
-                      <!-- <span aria-hidden="true">&times;</span> -->
-                      Batal
-                      </button>
-                      <button  type="submit" class="btn btn-success" name="submit" id="submit">Edit Pengguna</button> 
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" name="btn-batal-pengguna" id="btn-batal-pengguna"> 
+                      <i class="fa fa-window-close" aria-hidden="true"></i>  
+                    </button>
                      <!-- <button  type="button" class="btn btn-success" name="btn-e-save-pengadaan" id="btn-e-save-pengadaan">Simpan Usulan</button>  -->
                     </div>
                   </div>
@@ -174,13 +184,17 @@
                         <div class="modal-body">
                         <div class="form-group row">
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Unit Kerja</label>
-                                <input type="hidden" name="e_id_user" id="e_id_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama Unit Kerja Singkat" required>
-                                <input type="text" name="e_unit_kerja" id="e_unit_kerja" class="form-control js-data-example-basic-multiple"  placeholder="Nama Unit Kerja Singkat" required>
+                                <label class="col-md-12 col-form-label mini-text">Nama User</label>
+                                <input type="text" name="e_nama_user" id="e_nama_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama User" required>
                               </div>
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Unit Kerja Lengkap</label>
-                                <input type="text" name="e_ukl" id="e_ukl" class="form-control "   placeholder="Nama Unit Kerja Lengkap" required>
+                                <label class="col-md-12 col-form-label mini-text">Role</label>
+                                <select name="e_grup" id="e_grup" class="form-control">
+                                  <option >- Pilih Role -<option>
+                                  <option value="1">Administrator<option>
+                                  <option value="3">PIC Mutu<option>
+                                  <option value="4">PJ Mutu<option>
+                                </select>
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Username</label>
@@ -188,36 +202,51 @@
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Password</label>
-                                <input type="password" name="e_pass" id="e_pass" class="form-control" required>
+                                <input type="password" name="pass" id="pass" class="form-control" required>
                               </div>
+                              
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Role</label>
-                                <input type="text" name="e_role" id="e_role" class="form-control" value="User" >
+                                <label class="col-md-12 col-form-label mini-text">Jenis</label>
+                                <select name="e_jenis" id="e_jenis"  class="form-control">
+                                   <option >- Pilih Jenis -<option>
+                                  <option value="3">Area Klinis<option>
+                                  <option value="4">Area Manajemen<option>
+                                  <option value="5">Area SKP<option>
+                                </select>
                               </div>
-                             
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Blokir Akun</label>
-                                <!-- <input type="text" name="sumber_dana" id="sumber_dana" class="form-control" placeholder="Sumber Dana" required> -->
-                                <select name="e_blokir" id="e_blokir" class="form-control" required>
-                                  <option value="0">Tidak</option>
-                                  <option value="1">Blokir</option>
+                               <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Status</label>
+                                <select name="status" id="status"  class="form-control">
+                                   <option >- Pilih Status -<option>
+                                  <option value="1">Aktif<option>
+                                  <option value="2">Tidak Aktif<option>
                                   
                                 </select>
                               </div>
+                             
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Bidang</label>
-                                <input type="text" name="e_bidang" id="e_bidang" class="form-control" placeholder="Bidang" required>
+                                <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
+                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="namapic" required>
                               </div>
                               
                               <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Direksi</label>
-                                <input type="text" name="e_direksi" id="e_direksi" class="form-control" placeholder="Direksi" required>
+                                <label class="col-md-12 col-form-label mini-text">Kontak PIC</label>
+                                <input type="text" name="kontakpic" id="kontakpic" class="form-control" placeholder="Kontak PIC" required>
+                              </div>
+                              <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Parent</label>
+                                <input type="text" name="parent" id="parent" class="form-control" placeholder="parent" required>
                               </div>
                               
-                            </div>
+                              <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Email</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
+                              </div>
                         </form>
                   </div>
                   <div class="modal-footer">
+                        <button  type="submit" class="btn btn-success" name="submit" id="submit">Edit User</button> 
+                  
                   </div>
                 </div>
               </div>
