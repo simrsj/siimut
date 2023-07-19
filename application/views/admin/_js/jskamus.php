@@ -14,7 +14,7 @@ $(document).ready(function(){
             //'serverSide'	: true,
             'responsive': true, 
             ajax:{
-                url   : '<?php echo base_url('Master/ambil_pengguna')?>',
+                url   : '<?php echo base_url('Master/ambil_kamus')?>',
                 dataSrc : function(response){
                   var row = new Array();
                   // console.log(response);
@@ -23,15 +23,15 @@ $(document).ready(function(){
                   var hitung = response.data.length;
                     if (hitung>0) {
                       for(var x in response.data){
-                        button = '<button onClick="BukaEditPengguna('+response.data[x].id_user+')" name="btn_edit" class="btn btn-warning" title="Edit Data Pengguna"><i class="fas fa-edit"></i></button>';
+                        button = '<button onClick="BukaInfoKamus('+response.data[x].id_kamus+')" name="btn_info" class="btn btn-info btn-xs" title="Rincian Kamus"><i class="fas fa-info"></i></button><button onClick="BukaEditKamus('+response.data[x].id_kamus+')" name="btn_edit" class="btn btn-warning btn-xs" title="Edit Data Pengguna"><i class="fas fa-edit"></i></button>';
                        
                         row.push({
                           'no'            : i,
-                          'nama_user'     : response.data[x].nama_user,
-                          'username'      : response.data[x].username,
-                          'name'          : response.data[x].name,
-                          'nama'        : response.data[x].nama,
-                          'nama_status'        : response.data[x].nama_status,
+                          'nama_indikator'     : response.data[x].nama_indikator,
+                          'periode_pelaporan'      : response.data[x].periode_pelaporan,
+                          'penanggung_jawab'          : response.data[x].penanggung_jawab,
+                          'pengumpul_data'        : response.data[x].pengumpul_data,
+                          'target_ke_n'        : response.data[x].target_ke_n,
                           'aksi'          : button
                         });
                         i = i + 1;
@@ -47,20 +47,17 @@ $(document).ready(function(){
             },
             columns : [ 
               {'data': 'no'},
-              {'data': 'nama_user'},
-              {'data': 'username'},
-              {'data': 'name'},              
-              {'data': 'nama'},              
-              {'data': 'nama_status'},              
+              {'data': 'nama_indikator'},
+              {'data': 'periode_pelaporan'},
+              {'data': 'penanggung_jawab'},              
+              {'data': 'pengumpul_data'},              
+              {'data': 'target_ke_n'},              
               {'data': 'aksi'}
               
              ],
                  
         } );
 
-          ambilgrup();
-        ambilstatus();
-        ambiljenis();
     });
      //Save Pengguna
             $('#form-tambah-pengguna').submit(function() {
@@ -72,19 +69,19 @@ $(document).ready(function(){
              //  console.log(data);
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('Master/save_pengguna')?>",
+                    url  : "<?php echo base_url('Master/save_kamus')?>",
                     data : data,
                     success: function(response){
                        //console.log(response.data);
                         
-                        $('[name="unit_kerja"]').val("");
-                        $('[name="ukl"]').val("");
-                        $('[name="username"]').val("");
-                        $('[name="pass"]').val("");
-                        $('[name="bidang"]').val("");
-                        $('[name="direksi"]').val("");
+                        // $('[name="unit_kerja"]').val("");
+                        // $('[name="ukl"]').val("");
+                        // $('[name="username"]').val("");
+                        // $('[name="pass"]').val("");
+                        // $('[name="bidang"]').val("");
+                        // $('[name="direksi"]').val("");
                         ptable.ajax.reload(null,false);
-                        tata.success('Sukses', 'User Berhasil Ditambah .. ', 
+                        tata.success('Sukses', 'Kamus Berhasil Ditambah .. ', 
                         {
                             duration: 3000
                         })
@@ -95,7 +92,7 @@ $(document).ready(function(){
                     }, 
                     error: function(response){
                         console.log(response);
-                        tata.error('Gagal', 'User Gagal ditambah ', {
+                        tata.error('Gagal', 'Kamus Gagal ditambah ', {
                             duration: 3000
                         })
                     }
@@ -106,11 +103,41 @@ $(document).ready(function(){
                 return false;   
                            
             })
-            function BukaEditPengguna(id){
+               function BukaInfoKamus(id){
            //console.log(id);
             $.ajax({
                 type:"POST",
-                url  : "<?php echo base_url('Master/get_id_pengguna')?>",
+                url  : "<?php echo base_url('Master/get_id_kamus')?>",
+                dataType : "JSON",
+                data : {id:id},
+                        success: function(data){
+                            console.log(data[0]);
+                                                
+                            $('#e_id_user').val(data[0].id_user);
+                            $('#e_nama_user').val(data[0].nama_user);
+                            $('#e_username').val(data[0].username);
+                            $('#e_namapic').val(data[0].nama_pic);
+                            $('#e_kontakpic').val(data[0].kontak_pic);
+                            $('#e_parent').val(data[0].parent);
+                            $('#e_email').val(data[0].email);
+                            $('#e_pass').val(data[0].password);
+                            $('[name="e_grup"]').val(0).trigger('change');
+                            $('[name="e_jenis"]').val(0).trigger('change');
+                            $('[name="e_status"]').val(0).trigger('change');
+                            
+                            $('#Modal_Edit_Pengguna').modal('show');
+                            
+                        }
+                    });
+            return false;
+
+            
+        }
+            function BukaEditKamus(id){
+           //console.log(id);
+            $.ajax({
+                type:"POST",
+                url  : "<?php echo base_url('Master/get_id_kamus')?>",
                 dataType : "JSON",
                 data : {id:id},
                         success: function(data){
@@ -145,7 +172,7 @@ $(document).ready(function(){
              //  console.log(data);
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('Master/update_pengguna')?>",
+                    url  : "<?php echo base_url('Master/update_kamus')?>",
                     data : data,
                     success: function(response){
                        //console.log(response.data);

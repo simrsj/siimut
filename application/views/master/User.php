@@ -124,7 +124,7 @@
                               </div>
                                <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Status</label>
-                                <select name="e_status" id="e_status"  class="form-control">
+                                <select name="status" id="status"  class="form-control">
                                    <option >- Pilih Status -<option>
                                   <option value="1">Aktif<option>
                                   <option value="2">Tidak Aktif<option>
@@ -134,21 +134,21 @@
                              
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
-                                <input type="text" name="e_namapic" id="e_namapic" class="form-control" placeholder="namapic" required>
+                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="namapic" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Kontak PIC</label>
-                                <input type="text" name="e_kontakpic" id="e_kontakpic" class="form-control" placeholder="Kontak PIC" required>
+                                <input type="text" name="kontakpic" id="kontakpic" class="form-control" placeholder="Kontak PIC" required>
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Parent</label>
-                                <input type="text" name="e_parent" id="e_parent" class="form-control" placeholder="parent" required>
+                                <input type="text" name="parent" id="parent" class="form-control" placeholder="parent" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Email</label>
-                                <input type="text" name="e_email" id="e_email" class="form-control" placeholder="email" required>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
                               </div>
                               
                               
@@ -185,6 +185,7 @@
                         <div class="form-group row">
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Nama User</label>
+                                <input type="hidden" name="e_id_user" id="e_id_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama User" required>
                                 <input type="text" name="e_nama_user" id="e_nama_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama User" required>
                               </div>
                               <div class="col-md-6">
@@ -202,7 +203,7 @@
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Password</label>
-                                <input type="password" name="pass" id="pass" class="form-control" required>
+                                <input type="password" name="e_pass" id="e_pass" class="form-control" required>
                               </div>
                               
                               <div class="col-md-6">
@@ -216,7 +217,7 @@
                               </div>
                                <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Status</label>
-                                <select name="status" id="status"  class="form-control">
+                                <select name="e_status" id="e_status"  class="form-control">
                                    <option >- Pilih Status -<option>
                                   <option value="1">Aktif<option>
                                   <option value="2">Tidak Aktif<option>
@@ -226,21 +227,21 @@
                              
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
-                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="namapic" required>
+                                <input type="text" name="e_namapic" id="e_namapic" class="form-control" placeholder="Nama PIC" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Kontak PIC</label>
-                                <input type="text" name="kontakpic" id="kontakpic" class="form-control" placeholder="Kontak PIC" required>
+                                <input type="text" name="e_kontakpic" id="e_kontakpic" class="form-control" placeholder="Kontak PIC" required>
                               </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Parent</label>
-                                <input type="text" name="parent" id="parent" class="form-control" placeholder="parent" required>
+                                <input type="text" name="e_parent" id="e_parent" class="form-control" placeholder="parent" required>
                               </div>
                               
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
+                                <input type="text" name="e_email" id="e_email" class="form-control" placeholder="email" required>
                               </div>
                         </form>
                   </div>

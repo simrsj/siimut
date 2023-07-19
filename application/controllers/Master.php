@@ -95,6 +95,12 @@ class Master extends CI_Controller {
        echo json_encode($data);
 
     }
+    public function ambil_kamus(){
+        $baru =  $this->M_Master->ambil_kamus();
+        $data['data']=$baru;
+       echo json_encode($data);
+
+    }
     public function ambil_grup(){
         $baru =  $this->M_Master->ambil_grup();
         $data['data']=$baru;
@@ -119,89 +125,6 @@ class Master extends CI_Controller {
 		echo json_encode($data);
 
     }
-    public function ambil_subkegiatanmaster(){
-        $baru =  $this->M_Master->ambil_subkegiatanmaster();
-        $data['data']=$baru;
-		echo json_encode($data);
-
-    }
-    public function ambil_uraianmaster(){
-        $baru =  $this->M_Master->ambil_uraianmaster();
-        $data['data']=$baru;
-		echo json_encode($data);
-
-    }
-    public function ambil_kegiatanmaster(){
-        $baru =  $this->M_Master->ambil_kegiatanmaster();
-        $data['data']=$baru;
-		echo json_encode($data);
-
-    }
-    public function Program(){
-        $this->session_check();
-
-        $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
-        $result =  $this->M_User->getById($id_user);
-	 
-        $data['profile'] = $result;
-            
-        $this->load->view('Master/program',$data);
-        
-    }
-    public function Kegiatan(){
-        $this->session_check();
-
-        $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
-        $result =  $this->M_User->getById($id_user);
-	 
-        $data['profile'] = $result;
-            
-        $this->load->view('Master/kegiatan',$data);
-        
-    }
-    
-    public function Subkegiatan(){
-        $this->session_check();
-
-        $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
-        $result =  $this->M_User->getById($id_user);
-	 
-        $data['profile'] = $result;
-            
-        $this->load->view('Master/subkegiatan',$data);
-        
-    }
-    public function Uraian(){
-        $this->session_check();
-
-        $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
-        $result =  $this->M_User->getById($id_user);
-	 
-        $data['profile'] = $result;
-            
-        $this->load->view('Master/uraian',$data);
-        
-    }
-    public function import(){
-        $this->session_check();
-
-        $id_user =  $this->session->userdata('id_user');
-        $role =  $this->session->userdata('role');
-        $result =  $this->M_User->getById($id_user);
-	 
-        $data['profile'] = $result;
-            
-        $this->load->view('Master/import',$data);
-    }  
-    function ambil_kegiatan(){
-				
-        $data['data']=$this->M_Master->ambil_kegiatanmaster();
-        echo json_encode($data);
-    }
     public function save_pengguna(){
         $baru =  $this->M_Master->save_pengguna();
         $data['data']=$baru;
@@ -212,106 +135,22 @@ class Master extends CI_Controller {
        // $data['data']=$baru;
 		echo json_encode($data);
     }
+    public function get_id_kamus(){
+        $data =  $this->M_Master->get_id_kamus();
+       // $data['data']=$baru;
+		echo json_encode($data);
+    }
+      public function save_kamus(){
+        $baru =  $this->M_Master->save_kamus();
+        $data['data']=$baru;
+		echo json_encode($data);
+    }
     public function update_pengguna(){
         $data =  $this->M_Master->update_pengguna();
        // $data['data']=$baru;
 		echo json_encode($data);
     }
-    public function save_program(){
-        $baru =  $this->M_Master->save_program();
-        $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function get_id_program(){
-        $data =  $this->M_Master->get_id_program();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function update_program(){
-        $data =  $this->M_Master->update_program();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function save_kegiatan(){
-        $baru =  $this->M_Master->save_kegiatan();
-        $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function get_id_kegiatan(){
-        $data =  $this->M_Master->get_id_kegiatan();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function update_kegiatan(){
-        $data =  $this->M_Master->update_kegiatan();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function save_subkegiatan(){
-        $baru =  $this->M_Master->save_subkegiatan();
-        $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function get_id_subkegiatan(){
-        $data =  $this->M_Master->get_id_subkegiatan();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function update_subkegiatan(){
-        $data =  $this->M_Master->update_subkegiatan();
-       // $data['data']=$baru;
-		echo json_encode($data);
-    }
-    public function save_uraian(){
-        $baru =  $this->M_Master->save_uraian();
-        $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function get_id_uraian(){
-        $data =  $this->M_Master->get_id_uraian();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function update_uraian(){
-        $data =  $this->M_Master->update_uraian();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function tampil_program(){
-        $data =  $this->M_Master->tampil_program();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function delete_program(){
-        $data =  $this->M_Master->delete_program();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function tampil_kegiatan(){
-        $data =  $this->M_Master->tampil_kegiatan();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function delete_kegiatan(){
-        $data =  $this->M_Master->delete_kegiatan();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function tampil_subkegiatan(){
-        $data =  $this->M_Master->tampil_subkegiatan();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function delete_subkegiatan(){
-        $data =  $this->M_Master->delete_subkegiatan();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
-    public function tampil_uraian(){
-        $data =  $this->M_Master->tampil_uraian();
-       // $data['data']=$baru;
-		    echo json_encode($data);
-    }
+  
     public function delete_uraian(){
         $data =  $this->M_Master->delete_uraian();
        // $data['data']=$baru;

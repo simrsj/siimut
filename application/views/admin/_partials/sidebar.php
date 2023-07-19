@@ -82,6 +82,16 @@
             </a>
           </li>
          
+          <li class="nav-item">
+            <a href="<?php echo base_url('Indikator/Index');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Indikator' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-star"></i>
+              <p>
+                Validasi Indikator
+                <!-- <span class="badge badge-info right">2</span> -->
+              </p>
+            </a>
+          </li>
+         
           
           <li class="nav-header">Pengaturan</li>
           <?php if($profile->id_grup ==1){?>

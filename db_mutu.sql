@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 11:09 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- Generation Time: Jul 19, 2023 at 10:58 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,8 +40,55 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'Administrator', 'Administrator'),
-(3, 'User', 'PIC Mutu'),
-(4, 'PJ Mutu', 'Penanggung Jawab dan Validator Mutu');
+(3, 'PIC', 'PIC Mutu'),
+(4, 'PJ', 'Penanggung Jawab dan Validator Mutu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kamus`
+--
+
+CREATE TABLE `kamus` (
+  `id_kamus` int(11) NOT NULL,
+  `nama_indikator` varchar(255) NOT NULL,
+  `perspektif` varchar(100) NOT NULL,
+  `sasaran_strategis` varchar(255) NOT NULL,
+  `bobot_kpi` varchar(4) NOT NULL,
+  `alasan` varchar(100) NOT NULL,
+  `definisi` text NOT NULL,
+  `numerator` varchar(255) NOT NULL,
+  `denumerator` varchar(255) NOT NULL,
+  `formula` text NOT NULL,
+  `inklusi` text NOT NULL,
+  `eksklusi` text NOT NULL,
+  `tipe_indikator` varchar(20) NOT NULL,
+  `sumber_data` varchar(255) NOT NULL,
+  `sampel` varchar(5) NOT NULL,
+  `rencana_analisis` varchar(100) NOT NULL,
+  `wilayah_pengamatan` varchar(255) NOT NULL,
+  `metode_pengumpulan` varchar(100) NOT NULL,
+  `penanggung_jawab` varchar(100) NOT NULL,
+  `pengumpul_data` varchar(100) NOT NULL,
+  `frekuensi` varchar(10) NOT NULL,
+  `periode_pelaporan` varchar(20) NOT NULL,
+  `rencana_penyebaran` text NOT NULL,
+  `formulir_pengumpulan` varchar(255) NOT NULL,
+  `target_ke_n` int(11) NOT NULL,
+  `target_ke_n1` int(11) NOT NULL,
+  `target_ke_n2` int(11) NOT NULL,
+  `target_ke_n3` int(11) NOT NULL,
+  `target_ke_n4` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_jenis` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kamus`
+--
+
+INSERT INTO `kamus` (`id_kamus`, `nama_indikator`, `perspektif`, `sasaran_strategis`, `bobot_kpi`, `alasan`, `definisi`, `numerator`, `denumerator`, `formula`, `inklusi`, `eksklusi`, `tipe_indikator`, `sumber_data`, `sampel`, `rencana_analisis`, `wilayah_pengamatan`, `metode_pengumpulan`, `penanggung_jawab`, `pengumpul_data`, `frekuensi`, `periode_pelaporan`, `rencana_penyebaran`, `formulir_pengumpulan`, `target_ke_n`, `target_ke_n1`, `target_ke_n2`, `target_ke_n3`, `target_ke_n4`, `id_user`, `id_jenis`) VALUES
+(1, 'Persentase Tindak Lanjut Penyelesaian Permasalahan Lingkup Bidang Medik Yang Ditindaklanjuti < 3 X 24 Jam (100%)', 'Pengembangan Personil & Organisasi', 'Terselenggaranya pelayanan di Bidang Medik yang cepat tanggap dan responsif', '100%', 'High Risk, High cost, High Volume', 'Persentase tindak lanjut penyelesaian permasalahan lingkup Bidang Medik yang ditindaklanjuti < 3 x 24 jam adalah persentase dari jumlah permasalahan di lingkup Bidang Medik yang  telah ditindaklanjuti dalam waktu kurang dari 72 jam ( <3 x 24 jam ) terhadap seluruh permasalahan di lingkup Bidang Medik yang harus ditindaklanjuti. \r\nPemasalahan lingkup Bidang Medik dapat berupa permasalahan layanan, usulan kebutuhan, usulan perbaikan, termasuk surat masuk yang perlu ditindaklanjuti segera dan lain sebagainya yang terkait dengan upaya pemenuhan kualitas pelayanan di lingkup Bidang Medik. \r\nTindaklanjut dalam hal ini baik berupa koordinasi, kolaborasi, usulan pengadaan, usulan perbaikan, jawaban nota dinas, atau lainnya sesuai dengan kategori penyelesaiannya.\r\nKategori penyelesaian masalah : Jangka Pendek, Jangka Menengah dan Jangka Panjang\r\n', 'jumlah permasalahan di lingkup Bidang Medik yang telah ditindaklanjuti dalam waktu kurang dari 72 jam ( <3 x 24 jam )', 'Jumlah seluruh permasalahan di Lingkup Bidang Medik yang harus ditindaklanjuti', '(Jumlah permasalahan di lingkup Bidang Medik yang telah ditindaklanjuti dalam waktu kurang dari 72 jam ( <3 x 24 jam) ÷ Jumlah seluruh permasalahan di Lingkup Bidang Medik yang harus ditindaklanjuti) x 100%', 'Pemasalahan lingkup Bidang Medik dapat berupa permasalahan layanan, usulan kebutuhan, usulan perbaikan, termasuk surat masuk yang perlu ditindaklanjuti segera dan lain sebagainya yang terkait dengan upaya pemenuhan kualitas pelayanan di lingkup Bidang Medik.', 'Surat masuk yang tidak harus ditindaklanjuti atau permasalahan di luar Unit lingkup Bidang Medik.', ' ', 'Rekapitulasi Surat Masuk, Rekapitulasi Usulan Kebutuhan, Rekapitulasi Usulan Perbaikan, Rekapitulasi Pengaduan/Komplain', 'Tidak', 'Diagram Garis', ' ', 'Concurrent', 'Kepala Bidang Medik', 'PIC Mutu Bidang Medik', 'Bulanan', 'Setiap Bulan', 'Internal            : Performance board/Laporan Jaga/Rapat internal/Morning Briefing/Lainnya........., setiap rapat ruangan\r\nPimpinan RS   :                                             /setiap bulan\r\nPihak Terkait   : Komite Mutu                   /setiap Tgl 5\r\nPublik              :                                            /setiap...\r\n', ' ', 100, 100, 100, 100, 100, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -54,21 +102,21 @@ CREATE TABLE `m_indikator` (
   `jenis_id` int(11) NOT NULL,
   `urut` int(11) NOT NULL,
   `nama` text NOT NULL,
-  `dimensi` text DEFAULT NULL,
-  `tujuan` text DEFAULT NULL,
-  `definisi` text DEFAULT NULL,
-  `inklusi` text DEFAULT NULL,
-  `eksklusi` text DEFAULT NULL,
+  `dimensi` text,
+  `tujuan` text,
+  `definisi` text,
+  `inklusi` text,
+  `eksklusi` text,
   `frekuensi` varchar(45) NOT NULL,
   `tipe_id` int(11) DEFAULT NULL,
   `periode_analisa` int(11) DEFAULT NULL,
-  `num` text DEFAULT NULL,
-  `denum` text DEFAULT NULL,
+  `num` text,
+  `denum` text,
   `sumber_data` varchar(200) DEFAULT NULL,
   `standar` varchar(100) NOT NULL,
   `nama_pj` varchar(200) DEFAULT NULL,
   `stat` enum('Aktif','Tidak') NOT NULL DEFAULT 'Aktif',
-  `formula` text DEFAULT NULL
+  `formula` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -199,10 +247,29 @@ CREATE TABLE `m_jenis` (
 INSERT INTO `m_jenis` (`id`, `nama`) VALUES
 (1, 'Mutu Unit'),
 (2, 'Mutu Nasional'),
-(3, 'Mutu Prioritas Area Klinis'),
-(4, 'Mutu Prioritas Area Manajemen'),
-(5, 'Mutu Nasional Sasaran keselamatan pasien'),
+(3, 'Mutu Area Klinis'),
+(4, 'Mutu Area Manajemen'),
+(5, 'Mutu Area Sasaran Keselamatan Pasien'),
 (6, 'Kepatuhan Protokol Klinis');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `nama_status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `nama_status`) VALUES
+(1, 'aktif'),
+(2, 'tidak_aktif');
 
 -- --------------------------------------------------------
 
@@ -218,8 +285,26 @@ CREATE TABLE `users` (
   `kontak_pic` varchar(12) NOT NULL,
   `status` varchar(2) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `username` varchar(100) NOT NULL
+  `username` varchar(100) NOT NULL,
+  `id_jenis` int(11) NOT NULL,
+  `parent` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `create_at` date NOT NULL,
+  `modified_at` date NOT NULL,
+  `delete_at` date NOT NULL,
+  `isdeleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `nama_user`, `id_grup`, `nama_pic`, `kontak_pic`, `status`, `password`, `username`, `id_jenis`, `parent`, `email`, `create_at`, `modified_at`, `delete_at`, `isdeleted`) VALUES
+(1, 'Komite Mutu ', 1, 'dr.Hilda Puspa Indah, Sp.KJ', '', '1', '827ccb0eea8a706c4c34a16891f84e7b', 'komitemutu', 0, 0, '', '0000-00-00', '0000-00-00', '0000-00-00', 0),
+(2, 'Instalasi TIRS', 3, 'Rizki Egi Purnama, S.Pd', '', '1', '827ccb0eea8a706c4c34a16891f84e7b', 'instalasitirs', 0, 3, '', '0000-00-00', '0000-00-00', '0000-00-00', 0),
+(3, 'Sub Mutu Area Manajemen', 4, 'Drs. Isak Solihin, M.M', '', '1', '827ccb0eea8a706c4c34a16891f84e7b', 'Manajemen', 0, 0, '', '0000-00-00', '0000-00-00', '0000-00-00', 0),
+(4, 'Laboris Nam consequa', 2, 'Similique minim volu', 'Est modi mag', 'Co', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', 'wefeku', 2, 0, 'hyfexofu@mailinator.com', '2023-07-18', '0000-00-00', '0000-00-00', 0),
+(5, 'Instalasi IPSRS', 3, 'Adipisci lorem exped', 'Est nihil ex', '', '827ccb0eea8a706c4c34a16891f84e7b', 'instalasiipsrs', 4, 0, 'voronuseh@mailinator.com', '2023-07-18', '2023-07-18', '0000-00-00', 0);
 
 --
 -- Indexes for dumped tables
@@ -230,6 +315,12 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kamus`
+--
+ALTER TABLE `kamus`
+  ADD PRIMARY KEY (`id_kamus`);
 
 --
 -- Indexes for table `m_indikator`
@@ -246,6 +337,18 @@ ALTER TABLE `m_jenis`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -254,19 +357,31 @@ ALTER TABLE `m_jenis`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+--
+-- AUTO_INCREMENT for table `kamus`
+--
+ALTER TABLE `kamus`
+  MODIFY `id_kamus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `m_indikator`
 --
 ALTER TABLE `m_indikator`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
-
 --
 -- AUTO_INCREMENT for table `m_jenis`
 --
 ALTER TABLE `m_jenis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
