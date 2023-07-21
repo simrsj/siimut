@@ -83,12 +83,12 @@ class M_Master extends CI_Model {
         return $this->db->query($sql)->result();        
     }
     public function ambil_status(){
-        var_dump("grup2");
+        // var_dump("grup2");
         $sql = "SELECT * FROM status";
         return $this->db->query($sql)->result();        
     }
     public function ambil_jenis(){
-        var_dump("grup3");
+        // var_dump("grup3");
       $sql = "SELECT * FROM m_jenis";
         return $this->db->query($sql)->result();        
     }
@@ -264,7 +264,7 @@ class M_Master extends CI_Model {
     {
         // var_dump($id);die;
         $post = $this->input->post();
-        // var_dump($post);die;
+         var_dump($post);die;
         
         
         $this->nama_indikator = $post["nama_indikator"];

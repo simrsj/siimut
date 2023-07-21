@@ -98,10 +98,7 @@
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Role</label>
                                 <select name="grup" id="grup" class="form-control">
-                                  <option >- Pilih Role -<option>
-                                  <option value="1">Administrator<option>
-                                  <option value="3">PIC Mutu<option>
-                                  <option value="4">PJ Mutu<option>
+                                
                                 </select>
                               </div>
                               <div class="col-md-6">
@@ -116,25 +113,19 @@
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Jenis</label>
                                 <select name="jenis" id="jenis"  class="form-control">
-                                   <option >- Pilih Jenis -<option>
-                                  <option value="3">Area Klinis<option>
-                                  <option value="4">Area Manajemen<option>
-                                  <option value="5">Area SKP<option>
+                                 
                                 </select>
                               </div>
-                               <div class="col-md-6">
+                               <div class="col-md-6" >
                                 <label class="col-md-12 col-form-label mini-text">Status</label>
                                 <select name="status" id="status"  class="form-control">
-                                   <option >- Pilih Status -<option>
-                                  <option value="1">Aktif<option>
-                                  <option value="2">Tidak Aktif<option>
-                                  
+                                 
                                 </select>
                               </div>
                              
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
-                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="namapic" required>
+                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="Nama PIC " required>
                               </div>
                               
                               <div class="col-md-6">

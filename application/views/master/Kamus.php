@@ -99,10 +99,10 @@
                                 <label class="col-md-12 col-form-label mini-text">Perspektif</label>
                                 <select name="perspektif" id="perspektif" class="form-control">
                                   <option >- Pilih Perspektif -<option>
-                                  <option value="Stakeholder">Stakeholder<option>
-                                  <option value="Finansial">Finansial<option>
-                                  <option value="Proses_Bisnis_Internal">Proses Bisnis Internal<option>
-                                  <option value="Pengembangan_Personil_&_Organisasi">Pengembangan Personil & Organisasi<option>
+                                  <option value="stakeholder">Stakeholder<option>
+                                  <option value="finansial">Finansial<option>
+                                  <option value="Proses Bisnis Internal">Proses Bisnis Internal<option>
+                                  <option value="Pengembangan Personil & Organisasi">Pengembangan Personil & Organisasi<option>
                                 </select>
                               </div>
                               <div class="col-md-6">
@@ -209,6 +209,11 @@
                                 <label class="col-md-12 col-form-label mini-text">User</label>
                                 <input type="text" name="user" id="user" class="form-control" placeholder="Nama User" required>
                               </div>
+                              <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Jenis</label>
+                                <select name="jenis2" id="jenis2" class="form-control">
+                                </select>
+                              </div>
                               <div class="col-md-3">
                                 <label class="col-md-12 col-form-label mini-text">Target Capaian 2023</label>
                                 <input type="text" name="t1" id="t1" class="form-control" placeholder="Target Capaian 2023" required>
@@ -230,6 +235,7 @@
                                 <label class="col-md-12 col-form-label mini-text">Target Capaian 2027</label>
                                 <input type="text" name="t5" id="t5" class="form-control" placeholder="Target Capaian 2025" required>
                               </div>
+                              
                              
                               
                               

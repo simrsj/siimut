@@ -3,9 +3,9 @@
 
 $(document).ready(function(){
 
-         $('#grup').select2({'width': '-webkit-fill-available'});
-         $('#status').select2({'width': '-webkit-fill-available'});
-         $('#jenis').select2({'width': '-webkit-fill-available'});
+         $('#grup').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
+         $('#status').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
+         $('#jenis').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
       
       
         ptable = $('#PenggunaTable').DataTable( {
@@ -190,11 +190,12 @@ $(document).ready(function(){
                         $('#grup').append('<option value="0">- Pilih Grup -</option>');
                         
                         $.each(response.data, function(key,value){
-                                $('#Modal_Add #grup').append(
+                                $('#grup').append(
                                     $('<option></option>').val(value['id']).html(value['name'])
                                 );
                         });        
                         }
+                        
             });
             };
        
@@ -217,23 +218,59 @@ $(document).ready(function(){
             });
             };
             function ambiljenis(){
-            $.ajax ({
-                    // type: 'POST',
-                    url: '<?php echo base_url('Master/ambil_jenis')?>',
-                    dataType: 'json',
-                    success: function(response){
-                      $('#jenis').empty();
+              $.ajax ({
+                      // type: 'POST',
+                      url: '<?php echo base_url('Master/ambil_jenis')?>',
+                      dataType: 'json',
+                      success: function(response){
+                        $('#jenis').empty();
 
-                        $('#jenis').append('<option value="0">- Pilih Jenis Kelompok -</option>');
-                        
-                        $.each(response.data, function(key,value){
-                                $('#jenis').append(
-                                    $('<option></option>').val(value['id']).html(value['nama'])
-                                );
-                        });        
-                        }
-            });
+                          $('#jenis').append('<option value="0">- Pilih Jenis Kelompok -</option>');
+                          
+                          $.each(response.data, function(key,value){
+                                  $('#jenis').append(
+                                      $('<option></option>').val(value['id']).html(value['nama'])
+                                  );
+                          });        
+                          }
+              });
             };
-       
+            
+            function ambilperspektif(){
+              $.ajax ({
+                      // type: 'POST',
+                      url: '<?php echo base_url('Master/ambil_perspektif')?>',
+                      dataType: 'json',
+                      success: function(response){
+                        $('#perspektif').empty();
+
+                          $('#perspektif').append('<option value="0">- Pilih Perspektif -</option>');
+                          
+                          $.each(response.data, function(key,value){
+                                  $('#perspektif').append(
+                                      $('<option></option>').val(value['id']).html(value['nama'])
+                                  );
+                          });        
+                          }
+              });
+            };
+            function ambiluser(){
+              $.ajax ({
+                      // type: 'POST',
+                      url: '<?php echo base_url('Master/ambil_user')?>',
+                      dataType: 'json',
+                      success: function(response){
+                        $('#user').empty();
+
+                          $('#user').append('<option value="0">- Pilih User -</option>');
+                          
+                          $.each(response.data, function(key,value){
+                                  $('#user').append(
+                                      $('<option></option>').val(value['id']).html(value['nama'])
+                                  );
+                          });        
+                          }
+              });
+            };
 
   </script>    

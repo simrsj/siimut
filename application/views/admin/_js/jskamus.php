@@ -3,11 +3,9 @@
 
 $(document).ready(function(){
 
-         $('#grup').select2({'width': '-webkit-fill-available'});
-         $('#status').select2({'width': '-webkit-fill-available'});
-         $('#jenis').select2({'width': '-webkit-fill-available'});
-      
-      
+         $('#jenis2').select2({dropdownParent: $('#Modal_Add')});
+       
+       
         ptable = $('#PenggunaTable').DataTable( {
             'processing'	: true,
             'scrollX'   :true,
@@ -57,7 +55,7 @@ $(document).ready(function(){
              ],
                  
         } );
-
+        ambiljenis();
     });
      //Save Pengguna
             $('#form-tambah-pengguna').submit(function() {
@@ -217,7 +215,7 @@ $(document).ready(function(){
                         $('#grup').append('<option value="0">- Pilih Grup -</option>');
                         
                         $.each(response.data, function(key,value){
-                                $('#Modal_Add #grup').append(
+                                $('#grup').append(
                                     $('<option></option>').val(value['id']).html(value['name'])
                                 );
                         });        
@@ -243,18 +241,19 @@ $(document).ready(function(){
                         }
             });
             };
+            
             function ambiljenis(){
             $.ajax ({
                     // type: 'POST',
                     url: '<?php echo base_url('Master/ambil_jenis')?>',
                     dataType: 'json',
                     success: function(response){
-                      $('#jenis').empty();
+                      $('#jenis2').empty();
 
-                        $('#jenis').append('<option value="0">- Pilih Jenis Kelompok -</option>');
+                        $('#jenis2').append('<option value="0">- Pilih Jenis Kelompok -</option>');
                         
                         $.each(response.data, function(key,value){
-                                $('#jenis').append(
+                                $('#jenis2').append(
                                     $('<option></option>').val(value['id']).html(value['nama'])
                                 );
                         });        
