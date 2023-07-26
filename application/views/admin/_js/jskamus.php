@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
 
-         $('#jenis2').select2({dropdownParent: $('#Modal_Add')});
+         $('#jenis2').select2({dropdownParent: $('#Add_modal')});
        
        
         ptable = $('#PenggunaTable').DataTable( {
@@ -21,7 +21,7 @@ $(document).ready(function(){
                   var hitung = response.data.length;
                     if (hitung>0) {
                       for(var x in response.data){
-                        button = '<button onClick="BukaInfoKamus('+response.data[x].id_kamus+')" name="btn_info" class="btn btn-info btn-xs" title="Rincian Kamus"><i class="fas fa-info"></i></button><button onClick="BukaEditKamus('+response.data[x].id_kamus+')" name="btn_edit" class="btn btn-warning btn-xs" title="Edit Data Pengguna"><i class="fas fa-edit"></i></button>';
+                        button = '<button onClick="BukaInfoKamus('+response.data[x].id_kamus+')" name="btn_info" class="btn btn-info btn-block btn-xs" title="Rincian Kamus"><i class="fas fa-info"></i></button><button onClick="BukaEditKamus('+response.data[x].id_kamus+')" name="btn_edit" class="btn btn-warning btn-block btn-xs" title="Edit Kamus"><i class="fas fa-edit"></i></button><button onClick="DeleteKamus('+response.data[x].id_kamus+')" name="btn_hapus" class="btn btn-danger btn-block btn-xs" title="Delete Kamus"><i class="fa fa-trash"></i></button>';
                        
                         row.push({
                           'no'            : i,
@@ -96,7 +96,7 @@ $(document).ready(function(){
                     }
                              
                 });
-                $('#Modal_Add').modal('hide');
+                $('#Add_modal').modal('hide');
       
                 return false;   
                            
@@ -109,21 +109,42 @@ $(document).ready(function(){
                 dataType : "JSON",
                 data : {id:id},
                         success: function(data){
-                            console.log(data[0]);
+                            // console.log(data[0]);
                                                 
-                            $('#e_id_user').val(data[0].id_user);
-                            $('#e_nama_user').val(data[0].nama_user);
-                            $('#e_username').val(data[0].username);
-                            $('#e_namapic').val(data[0].nama_pic);
-                            $('#e_kontakpic').val(data[0].kontak_pic);
-                            $('#e_parent').val(data[0].parent);
-                            $('#e_email').val(data[0].email);
-                            $('#e_pass').val(data[0].password);
-                            $('[name="e_grup"]').val(0).trigger('change');
-                            $('[name="e_jenis"]').val(0).trigger('change');
-                            $('[name="e_status"]').val(0).trigger('change');
-                            
-                            $('#Modal_Edit_Pengguna').modal('show');
+                            $('#e_id_kamus').val(data[0].id_kamus);
+                            $('#e_nama_indikator').val(data[0].nama_indikator);
+                            $('#e_perspektif').val(data[0].perspektif);
+                            $('#e_sas_stra').val(data[0].sasaran_strategis);
+                            $('#e_bobot').val(data[0].bobot_kpi);
+                            $('#e_alasan').val(data[0].alasan);
+                            $('#e_definisi').val(data[0].definisi);
+                            $('#e_numerator').val(data[0].numerator);
+                            $('#e_denumerator').val(data[0].denumerator);
+                            $('#e_formula').val(data[0].formula);
+                            $('#e_inklusi').val(data[0].inklusi);
+                            $('#e_ekslusi').val(data[0].ekslusi);
+                            $('#e_tipe_indikator').val(data[0].tipe_indikator);
+                            $('#e_sumber_data').val(data[0].sumber_data);
+                            $('#e_sampel').val(data[0].sampel);
+                            $('#e_rencana_analisis').val(data[0].rencana_analisis);
+                            $('#e_wilayah').val(data[0].wilayah_pengamatan);
+                            $('#e_metode').val(data[0].metode_pengumpulan);
+                            $('#e_PJ').val(data[0].penanggung_jawab);
+                            $('#e_pengumpul_data').val(data[0].pengumpul_data);
+                            $('#e_frekuensi').val(data[0].frekuensi);
+                            $('#e_periode').val(data[0].periode_pelaporan);
+                            $('#e_rencana').val(data[0].rencana_penyebaran);
+                            $('#e_formulir').val(data[0].formulir_pengumpulan);
+                            $('#e_t1').val(data[0].target_ke_n);
+                            $('#e_t2').val(data[0].target_ke_n1);
+                            $('#e_t3').val(data[0].target_ke_n2);
+                            $('#e_t4').val(data[0].target_ke_n3);
+                            $('#e_t5').val(data[0].target_ke_n4);
+                            $('#e_user').val(data[0].id_user);
+                            $('#e_jenis').val(data[0].id_jenis);
+
+                                      
+                            $('#Modal_Edit_Kamus').modal('show');
                             
                         }
                     });
@@ -139,21 +160,42 @@ $(document).ready(function(){
                 dataType : "JSON",
                 data : {id:id},
                         success: function(data){
-                            console.log(data[0]);
+                            // console.log(data[0]);
                                                 
-                            $('#e_id_user').val(data[0].id_user);
-                            $('#e_nama_user').val(data[0].nama_user);
-                            $('#e_username').val(data[0].username);
-                            $('#e_namapic').val(data[0].nama_pic);
-                            $('#e_kontakpic').val(data[0].kontak_pic);
-                            $('#e_parent').val(data[0].parent);
-                            $('#e_email').val(data[0].email);
-                            $('#e_pass').val(data[0].password);
-                            $('[name="e_grup"]').val(0).trigger('change');
-                            $('[name="e_jenis"]').val(0).trigger('change');
-                            $('[name="e_status"]').val(0).trigger('change');
+                            $('#e_id_kamus').val(data[0].id_kamus);
+                            $('#e_nama_indikator').val(data[0].nama_indikator);
+                            $('#e_perspektif').val(data[0].perspektif);
+                            $('#e_sas_stra').val(data[0].sasaran_strategis);
+                            $('#e_bobot').val(data[0].bobot_kpi);
+                            $('#e_alasan').val(data[0].alasan);
+                            $('#e_definisi').val(data[0].definisi);
+                            $('#e_numerator').val(data[0].numerator);
+                            $('#e_denumerator').val(data[0].denumerator);
+                            $('#e_formula').val(data[0].formula);
+                            $('#e_inklusi').val(data[0].inklusi);
+                            $('#e_ekslusi').val(data[0].ekslusi);
+                            $('#e_tipe_indikator').val(data[0].tipe_indikator);
+                            $('#e_sumber_data').val(data[0].sumber_data);
+                            $('#e_sampel').val(data[0].sampel);
+                            $('#e_rencana_analisis').val(data[0].rencana_analisis);
+                            $('#e_wilayah').val(data[0].wilayah_pengamatan);
+                            $('#e_metode').val(data[0].metode_pengumpulan);
+                            $('#e_PJ').val(data[0].penanggung_jawab);
+                            $('#e_pengumpul_data').val(data[0].pengumpul_data);
+                            $('#e_frekuensi').val(data[0].frekuensi);
+                            $('#e_periode').val(data[0].periode_pelaporan);
+                            $('#e_rencana').val(data[0].rencana_penyebaran);
+                            $('#e_formulir').val(data[0].formulir_pengumpulan);
+                            $('#e_t1').val(data[0].target_ke_n);
+                            $('#e_t2').val(data[0].target_ke_n1);
+                            $('#e_t3').val(data[0].target_ke_n2);
+                            $('#e_t4').val(data[0].target_ke_n3);
+                            $('#e_t5').val(data[0].target_ke_n4);
+                            $('#e_user').val(data[0].id_user);
+                            $('#e_jenis').val(data[0].id_jenis);
+
                             
-                            $('#Modal_Edit_Pengguna').modal('show');
+                            $('#Modal_Edit_Kamus').modal('show');
                             
                         }
                     });
@@ -186,7 +228,7 @@ $(document).ready(function(){
                         tata.success('Sukses', 'Data Berhasil Berubah .. ', {
                             duration: 3000
                         })
-                        $('#Modal_Edit_Pengguna').modal('hide');
+                        $('#Modal_Edit_Kamus').modal('hide');
                 
                         
                         //$('#Modal_Edit').modal('hide');
@@ -199,7 +241,7 @@ $(document).ready(function(){
                     }
                              
                 });
-                $('#Modal_Add').modal('hide');
+                $('#Modal_Edit_Kamus').modal('hide');
       
                 return false;   
                            
@@ -260,6 +302,7 @@ $(document).ready(function(){
                         }
             });
             };
+        
        
 
   </script>    

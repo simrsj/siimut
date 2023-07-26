@@ -150,6 +150,11 @@ class Master extends CI_Controller {
        // $data['data']=$baru;
 		echo json_encode($data);
     }
+    public function update_kamus(){
+        $data =  $this->M_Master->update_kamus();
+       // $data['data']=$baru;
+		echo json_encode($data);
+    }
   
     public function delete_uraian(){
         $data =  $this->M_Master->delete_uraian();

@@ -234,27 +234,44 @@ class M_Master extends CI_Model {
         // $this->db->where(["id_temp_pengadaan" => $id]);
         // return $this->db->get($this->_table)->result();
     }
-    public function update_pengguna()
+    public function update_kamus()
     {
         $post = $this->input->post();
         //var_dump($post);die;
         
-        $this->nama_user = $post["e_nama_user"];
-        $this->id_grup = $post["e_grup"];
-        $this->username = $post["e_username"];
-        $this->password = md5($post["e_pass"]);
+        $this->nama_indikator = $post["e_nama_indikator"];
+        $this->perspektif = $post["e_perspektif"];
+        $this->sasaran_strategis = $post["e_sas_stra"];
+        $this->bobot_kpi = $post["e_bobot"];
+        $this->alasan = $post["e_alasan"];
+        $this->definisi = $post["e_definisi"];
+        $this->numerator = $post["e_numerator"];
+        $this->denumerator = $post["e_denumerator"];
+        $this->formula = $post["e_formula"];
+        $this->inklusi = $post["e_inklusi"];
+        $this->eksklusi = $post["e_eksklusi"];
+        $this->tipe_indikator = $post["e_tipe_indikator"];
+        $this->sumber_data = $post["e_sumber_data"];
+        $this->sampel = $post["e_sampel"];
+        $this->rencana_analisis = $post["e_rencana_analisis"];
+        $this->wilayah_pengamatan = $post["e_wilayah"];
+        $this->metode_pengumpulan = $post["e_metode"];
+        $this->penanggung_jawab = $post["e_PJ"];
+        $this->pengumpul_data = $post["e_pengumpul_data"];
+        $this->frekuensi = $post["e_frekuensi"];
+        $this->periode_pelaporan = $post["e_periode"];
+        $this->rencana_penyebaran = $post["e_rencana"];
+        $this->formulir_pengumpulan = $post["e_formulir"];
+        $this->target_ke_n = $post["e_t1"];
+        $this->target_ke_n1 = $post["e_t2"];
+        $this->target_ke_n2= $post["e_t3"];
+        $this->target_ke_n3 = $post["e_t4"];
+        $this->target_ke_n4= $post["e_t5"];
+        $this->id_user = $post["e_user"];
         $this->id_jenis = $post["e_jenis"];
-        $this->nama_pic = $post["e_namapic"];
-        $this->kontak_pic = $post["e_kontakpic"];
-        $this->parent = $post["e_parent"];
-        $this->email = $post["e_email"];
-        $this->status = $post["e_status"];
-        $this->isdeleted = 0;
-        $this->modified_at = date('Y-m-d');
-        $this->delete_at = '';
         
-        $this->db->where('id_user',$post["e_id_user"]);
-        $this->db->update('users', $this);
+        $this->db->where('id_kamus',$post["e_id_kamus"]);
+        $this->db->update('kamus', $this);
         
         
         // $this->db->where(["id_temp_pengadaan" => $id]);
@@ -264,7 +281,7 @@ class M_Master extends CI_Model {
     {
         // var_dump($id);die;
         $post = $this->input->post();
-         var_dump($post);die;
+        //  var_dump($post);die;
         
         
         $this->nama_indikator = $post["nama_indikator"];
