@@ -19,13 +19,16 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>SI IMUT</b></a>
+      <img src="<?php echo base_url('dist\img\logo-siimut.png');?>" width="70%">
+      <!-- <a href="#" class="h1"><b>SI IMUT</b></a> -->
     </div>
    
         	<?php
+          error_reporting(0);
 						$data = $this->session->flashdata('data'); 
-
-						if($data['status'] == true){
+            $len = is_null($data['status']) ? 0 : count($data['status']);
+          
+						if($data['status']==true){
               ?>
                <div class="card-body">
                 <div class="card card-info">
@@ -51,6 +54,7 @@
             }else{
 							echo "&nbsp";
 						}
+          
 					?>
      
     <div class="card-body">

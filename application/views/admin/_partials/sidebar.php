@@ -73,7 +73,7 @@
                 </a>
               </li>
           <li class="nav-item">
-            <a href="<?php echo base_url('Indikator/Index');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Indikator' ? 'active': '' ?>">
+            <a href="<?php echo base_url('Indikator/Indikator');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Indikator' ? 'active': '' ?>">
               <i class="nav-icon fas fa-star"></i>
               <p>
                 Indikator
@@ -83,8 +83,9 @@
           </li>
          
           <li class="nav-item">
-            <a href="<?php echo base_url('Indikator/Index');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Indikator' ? 'active': '' ?>">
-              <i class="nav-icon fas fa-star"></i>
+            <a href="<?php echo base_url('Indikator/Validasi');?>" class="nav-link <?php echo $this->uri->segment(1) == 'Validasi' ? 'active': '' ?>">
+              <i class="nav-icon fas fa-calendar-check"></i>
+            
               <p>
                 Validasi Indikator
                 <!-- <span class="badge badge-info right">2</span> -->
