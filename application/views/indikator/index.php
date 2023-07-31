@@ -95,7 +95,7 @@
                   <div class="modal-body">
                           <div class="form-group row" style="margin-bottom: 0px !important;">
                             
-                          <div class="col-md-12">
+                          <div class="col-6">
                             <table class="table table-striped">
                               <tr>
                                 <td class="pad-2">Unit Kerja</td>
@@ -114,112 +114,73 @@
                               </tr>
                             </table>
                           </div>
-                  </div>
+                          <div class="col-6">
+                            <table class="table table-striped">
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                            </table>
+                          </div>
+                  
+                  <div class="col-12">
+                        
                         <form id="form-tambah-barang" method="POST"  enctype="multipart/form-data">            
                           <div class="form-group row" style="margin-bottom: 0px !important;">
                                 <input type="hidden" name="kode_barang" id="kode_barang" class="form-control" placeholder="Kode Barang" >
                                 <input type="hidden" name="id_temp" id="id_temp" class="form-control" >
                                 <input type="hidden" name="jenis_belanja" id="jenis_belanja" value="0" class="form-control" >
                               <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Nama Program</label>
-                                <select name="id_program" id="id_program" class="form-control js-data-example-basic-multiple" onChange="bukakegiatan(this);" style="width: 100%"></select> 
-                              </div>
+                                <label class="col-md-12 col-form-label mini-text">Tanggal</label>
+                               <input type="date" name="tgl" id="tgl" class="form-control" required>
+                               </div>
                               <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Nama Kegiatan</label>
-                                <select type="text" name="id_kegiatan" id="id_kegiatan" class="form-control "  onChange="bukasubkegiatan(this);" style="width: 100%"></select>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Nama SubKegiatan</label>
-                                <select type="text" name="id_subkegiatan" id="id_subkegiatan" class="form-control" style="width: 100%"></select>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Uraian</label>
-                                <select type="text" name="id_uraian" id="id_uraian" class="form-control" style="width: 100%" required></select>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Jenis Sumber Dana</label>
-                                <!-- <input type="text" name="sumber_dana" id="sumber_dana" class="form-control" placeholder="Sumber Dana" required> -->
-                                <select name="sumber_dana" id="sumber_dana" class="form-control" style="width: 100%" required>
-                                  <option value="">Pilih Sumber Dana</option>
-                                  <option value="apbd">APBD</option>
-                                  <option value="apbn">APBN</option>
-                                  <option value="blud">BLUD</option>
-                                </select>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Nama Rincian Belanja Pegawai</label>
-                                <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
-                              </div>
-                               <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Tipe Barang</label>
-                                <select type="text" name="id_tipe_barang" id="id_tipe_barang" class="form-control" style="width: 100%"  required></select>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Jenis Barang</label>
-                                <select type="text" name="id_jenis_barang" id="id_jenis_barang" class="form-control" style="width: 100%"  required></select>
-                              </div>
-                             
-                            
-                              
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Kuantitas</label>
-                                <input type="number" name="kuantitas" id="kuantitas" class="form-control" placeholder="Kuantitas" required>
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Satuan</label>
-                                <input type="text" name="satuan" id="satuan" class="form-control" placeholder="Satuan" required>
-                              </div>
-                               <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Upload Dokumen Pendukung (PDF)</label>
-                                <input type="file" name="image" id="image">
-                                <input type="hidden" name="e_image" id="e_image">
-                              </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Skala Prioritas</label>
-                                <!-- <input type="text" name="prioritas" id="prioritas" class="form-control" placeholder="Prioritas" required> -->
-                                <select name="prioritas" id="prioritas" class="form-control" style="width: 100%" required>
-                                  <option value="">Pilih Prioritas</option>
-                                  <option value="tinggi">Tinggi</option>
-                                  <option value="sedang">Sedang</option>
-                                  <option value="rendah">Rendah</option>
-                                </select>
-                              </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Harga Satuan</label>
-                                <input type="text" name="hs" id="hs" class="form-control" placeholder="Harga Satuan" required>
-                              </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Spesifikasi</label>
-                                <input type="text" name="spesifikasi" id="spesifikasi" class="form-control" placeholder="Merk, Ukuran, Rincian, dll" required>
-                              </div>
-                              <!-- <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Upload Bukti Harga</label>
-                                <input type="file" name="upload_harga" id="upload_harga" class="form-control" >
-                              </div>
-                               -->
-                             
-                              
-                              <div class="col-md-10">
-                                <label class="col-md-12 col-form-label mini-text">Catatan</label>
-                                <textarea name="catatan" id="catatan" cols="40" rows="3" class="form-control"></textarea>
-                                
-                              </div>
-                              <?php  if($tahun == 2024 && ($id_user == 54 ||$id_user == 57 )){?>
-                                <div class="col-md-2">
-                                  <label class="col-md-12 col-form-label mini-text mt-03"> </label>
-                                  <button type="submit" type="submit" id="btn_save_brg_temp_pengadaan" class="btn btn-primary"><i class="fas fa-add"></i> Tambah Usulan</button>
-                                </div>
-                              <?php } ?>
-                               <?php if($tahun> 2024){ ?>
-                       
-                                <div class="col-md-2">
-                                  <label class="col-md-12 col-form-label mini-text mt-03"> </label>
-                                  <button type="submit" type="submit" id="btn_save_brg_temp_pengadaan" class="btn btn-primary"><i class="fas fa-add"></i> Tambah Usulan</button>
-                                </div>
-                              <?php } ?>
+                                <label class="col-md-12 col-form-label mini-text">Realisasi</label>
+                                <input type="text" name="realisasi" id="realisasi" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
                             </div>
-                        </form>
+                            <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Laporan Bulan</label>
+                                <input type="text" name="bulan" id="bulan" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                            </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Plan</label>
+                                <input type="text" name="plan" id="plan" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Do</label>
+                                <input type="text" name="do" id="do" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Study </label>
+                                <input type="text" name="study" id="study" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Action </label>
+                                <input type="text" name="action" id="action" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Study </label>
+                                <input type="text" name="study" id="study" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              </div>
+                               
+                              </form>
+                            
+                        
+                        
                   </div>
+                    
+                    
                   <div class="modal-footer">
                   </div>
                   <div class="modal-body">
@@ -336,6 +297,20 @@
                               </div>
                         </form>
                   </div>
+                  <div class="col-6">
+                        
+                        <form id="form-tambah-barang" method="POST"  enctype="multipart/form-data">            
+                          <div class="form-group row" style="margin-bottom: 0px !important;">
+                                <input type="hidden" name="kode_barang" id="kode_barang" class="form-control" placeholder="Kode Barang" >
+                                <input type="hidden" name="id_temp" id="id_temp" class="form-control" >
+                                <input type="hidden" name="jenis_belanja" id="jenis_belanja" value="0" class="form-control" >
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Tanggal</label>
+                               <input type="date" name="tgl" id="tgl" class="form-control" required>
+                               </div>
+                               </div>
+                               </form>
+                               </div>
                   <div class="modal-footer">
                         <button  type="submit" class="btn btn-success" name="submit" id="submit">Edit User</button> 
                   
