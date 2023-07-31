@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
 
-         $('#jenis2').select2({dropdownParent: $('#Add_modal')});
+         $('#jenis2').select2({dropdownParent: $('#Modal_Add')});
        
        
         ptable = $('#PenggunaTable').DataTable( {
@@ -21,7 +21,7 @@ $(document).ready(function(){
                   var hitung = response.data.length;
                     if (hitung>0) {
                       for(var x in response.data){
-                        button = '<button onClick="BukaEditRealisasi('+response.data[x].id_kamus+')" name="btn_edit" class="btn btn-outline-info btn-block btn-sm" title="Edit Kamus"><i class="fa fa-cog" aria-hidden="true"></i>';
+                        button = '<button onClick="BukaRealisasi('+response.data[x].id_kamus+')" name="btn_edit" class="btn btn-outline-info btn-block btn-sm" title="Edit Kamus"><i class="fa fa-cog" aria-hidden="true"></i>';
                        
                         row.push({
                           'no'            : i,
@@ -94,7 +94,7 @@ $(document).ready(function(){
                     }
                              
                 });
-                $('#Add_modal').modal('hide');
+                $('#Modal_Add').modal('hide');
       
                 return false;   
                            
@@ -150,7 +150,7 @@ $(document).ready(function(){
 
             
         }
-            function BukaEditKamus(id){
+            function BukaRealisasi(id){
            //console.log(id);
             $.ajax({
                 type:"POST",
@@ -193,7 +193,7 @@ $(document).ready(function(){
                             $('#e_jenis').val(data[0].id_jenis);
 
                             
-                            $('#Modal_Edit_Kamus').modal('show');
+                            $('#Modal_Add').modal('show');
                             
                         }
                     });

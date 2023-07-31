@@ -77,83 +77,184 @@
   <!-- /.content-wrapper -->
          
  
-        <!--MODAL ADD-->
-            <div class="modal fade" id="Modal_Add" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
-              <div class="modal-dialog modal-lg" role="document">
+     <!--MODAL ADD-->
+     <div class="modal fade" id="Modal_Add" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+              <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
-                <form id="form-tambah-pengguna" method="POST">            
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" name="btn-batal-pengguna" id="btn-batal-pengguna">
-                      <i class="fa fa-window-close" aria-hidden="true"></i>  
-                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Realisasi Target Indikator</h5>
+                    <div>
+                      <button  type="button" class="btn btn-success" name="btn-save-pengadaan" id="btn-save-pengadaan"><i class="fas fa-save"></i> Simpan Usulan</button> 
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" name="btn-batal-pengadaan" id="btn-batal-pengadaan">
+                      <!-- <span aria-hidden="true">&times;</span> -->
+                       <i class="fa fa-times"></i>
+                      </button>
+                  
+                  </div>
                   </div>
                   <div class="modal-body">
-                          <div class="form-group row">
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Nama User</label>
-                                <input type="text" name="nama_user" id="nama_user" class="form-control js-data-example-basic-multiple"  placeholder="Nama User" required>
+                          <div class="form-group row" style="margin-bottom: 0px !important;">
+                            
+                          <div class="col-md-12">
+                            <table class="table table-striped">
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                              <tr>
+                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">:</td>
+                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                              </tr>
+                            </table>
+                          </div>
+                  </div>
+                        <form id="form-tambah-barang" method="POST"  enctype="multipart/form-data">            
+                          <div class="form-group row" style="margin-bottom: 0px !important;">
+                                <input type="hidden" name="kode_barang" id="kode_barang" class="form-control" placeholder="Kode Barang" >
+                                <input type="hidden" name="id_temp" id="id_temp" class="form-control" >
+                                <input type="hidden" name="jenis_belanja" id="jenis_belanja" value="0" class="form-control" >
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Nama Program</label>
+                                <select name="id_program" id="id_program" class="form-control js-data-example-basic-multiple" onChange="bukakegiatan(this);" style="width: 100%"></select> 
                               </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Role</label>
-                                <select name="grup" id="grup" class="form-control">
-                                
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Nama Kegiatan</label>
+                                <select type="text" name="id_kegiatan" id="id_kegiatan" class="form-control "  onChange="bukasubkegiatan(this);" style="width: 100%"></select>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Nama SubKegiatan</label>
+                                <select type="text" name="id_subkegiatan" id="id_subkegiatan" class="form-control" style="width: 100%"></select>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Uraian</label>
+                                <select type="text" name="id_uraian" id="id_uraian" class="form-control" style="width: 100%" required></select>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Jenis Sumber Dana</label>
+                                <!-- <input type="text" name="sumber_dana" id="sumber_dana" class="form-control" placeholder="Sumber Dana" required> -->
+                                <select name="sumber_dana" id="sumber_dana" class="form-control" style="width: 100%" required>
+                                  <option value="">Pilih Sumber Dana</option>
+                                  <option value="apbd">APBD</option>
+                                  <option value="apbn">APBN</option>
+                                  <option value="blud">BLUD</option>
                                 </select>
                               </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Username"  required>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Nama Rincian Belanja Pegawai</label>
+                                <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
                               </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Password</label>
-                                <input type="password" name="e_pass" id="e_pass" class="form-control" required>
+                               <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Tipe Barang</label>
+                                <select type="text" name="id_tipe_barang" id="id_tipe_barang" class="form-control" style="width: 100%"  required></select>
                               </div>
-                              
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Jenis</label>
-                                <select name="jenis" id="jenis"  class="form-control">
-                                 
-                                </select>
-                              </div>
-                               <div class="col-md-6" >
-                                <label class="col-md-12 col-form-label mini-text">Status</label>
-                                <select name="status" id="status"  class="form-control">
-                                 
-                                </select>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Jenis Barang</label>
+                                <select type="text" name="id_jenis_barang" id="id_jenis_barang" class="form-control" style="width: 100%"  required></select>
                               </div>
                              
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Nama PIC</label>
-                                <input type="text" name="namapic" id="namapic" class="form-control" placeholder="Nama PIC " required>
-                              </div>
-                              
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Kontak PIC</label>
-                                <input type="text" name="kontakpic" id="kontakpic" class="form-control" placeholder="Kontak PIC" required>
-                              </div>
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Parent</label>
-                                <input type="text" name="parent" id="parent" class="form-control" placeholder="parent" required>
-                              </div>
-                              
-                              <div class="col-md-6">
-                                <label class="col-md-12 col-form-label mini-text">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="email" required>
-                              </div>
-                              
-                              
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" name="submit" id="submit">Tambah User</button> 
                             
-                          </div>
+                              
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Kuantitas</label>
+                                <input type="number" name="kuantitas" id="kuantitas" class="form-control" placeholder="Kuantitas" required>
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Satuan</label>
+                                <input type="text" name="satuan" id="satuan" class="form-control" placeholder="Satuan" required>
+                              </div>
+                               <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Upload Dokumen Pendukung (PDF)</label>
+                                <input type="file" name="image" id="image">
+                                <input type="hidden" name="e_image" id="e_image">
+                              </div>
+                              <div class="col-md-4">
+                                <label class="col-md-12 col-form-label mini-text">Skala Prioritas</label>
+                                <!-- <input type="text" name="prioritas" id="prioritas" class="form-control" placeholder="Prioritas" required> -->
+                                <select name="prioritas" id="prioritas" class="form-control" style="width: 100%" required>
+                                  <option value="">Pilih Prioritas</option>
+                                  <option value="tinggi">Tinggi</option>
+                                  <option value="sedang">Sedang</option>
+                                  <option value="rendah">Rendah</option>
+                                </select>
+                              </div>
+                              <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Harga Satuan</label>
+                                <input type="text" name="hs" id="hs" class="form-control" placeholder="Harga Satuan" required>
+                              </div>
+                              <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Spesifikasi</label>
+                                <input type="text" name="spesifikasi" id="spesifikasi" class="form-control" placeholder="Merk, Ukuran, Rincian, dll" required>
+                              </div>
+                              <!-- <div class="col-md-6">
+                                <label class="col-md-12 col-form-label mini-text">Upload Bukti Harga</label>
+                                <input type="file" name="upload_harga" id="upload_harga" class="form-control" >
+                              </div>
+                               -->
+                             
+                              
+                              <div class="col-md-10">
+                                <label class="col-md-12 col-form-label mini-text">Catatan</label>
+                                <textarea name="catatan" id="catatan" cols="40" rows="3" class="form-control"></textarea>
+                                
+                              </div>
+                              <?php  if($tahun == 2024 && ($id_user == 54 ||$id_user == 57 )){?>
+                                <div class="col-md-2">
+                                  <label class="col-md-12 col-form-label mini-text mt-03"> </label>
+                                  <button type="submit" type="submit" id="btn_save_brg_temp_pengadaan" class="btn btn-primary"><i class="fas fa-add"></i> Tambah Usulan</button>
+                                </div>
+                              <?php } ?>
+                               <?php if($tahun> 2024){ ?>
+                       
+                                <div class="col-md-2">
+                                  <label class="col-md-12 col-form-label mini-text mt-03"> </label>
+                                  <button type="submit" type="submit" id="btn_save_brg_temp_pengadaan" class="btn btn-primary"><i class="fas fa-add"></i> Tambah Usulan</button>
+                                </div>
+                              <?php } ?>
+                            </div>
                         </form>
-                 
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                  <div class="modal-body">
+                  <table class="table table-striped" id="DetailPengadaantempTable" style="min-width:100% !important;">
+                    <thead>
+                       <tr>
+                        <th>Nama Program</th>
+                        <th>Nama Kegiatan</th>
+                        <th>Nama Subkegiatan</th>
+                        <th>Nama Uraian</th>
+                        <th>Nama Barang</th>
+                        <th>Kuantitas</th>
+                        <th>Harga</th>
+                        <th>Total harga</th>
+                        <th>Prioritas</th>
+                        <th>Catatan</th>
+                        <th>Dokumen Pendukung</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>                      
+                    </tbody>
+                     <tfoot>
+                          <tr>
+                              <th colspan="9" style="text-align:right">Total:</th>
+                              <th></th>
+                          </tr>
+                    </tfoot>
+                    </table>
+                  </div>
                   
                 </div>
               </div>
             </div>
+         
          
         <!--MODAL EDIT-->
                   <form id="form-edit-pengguna">           
