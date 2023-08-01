@@ -26,7 +26,7 @@ $(document).ready(function(){
                        
                         row.push({
                           'no'            : no,
-                          'nama_indikator'     : response.data[x].id_kamus,
+                          'nama_indikator'     : response.data[x].nama_indikator,
                           'bulan'     : response.data[x].bulan,
                           'idcapaian'     : response.data[x].id_capaian,
                           'num'     : response.data[x].num,
@@ -37,6 +37,7 @@ $(document).ready(function(){
                           'action'     : response.data[x].action,
                           'capaian'     : response.data[x].capaian,
                           'status'     : response.data[x].status,
+                          'id_user'     : response.data[x].id_user,
                         });
                         i = i + 1;
                       }
@@ -53,7 +54,7 @@ $(document).ready(function(){
               {'data': 'no'},
               {'data': 'nama_indikator'},
               {'data': 'bulan'},
-              {'data': 'idcapaian'},
+              {'data': 'id_user'},
               {'data': 'num'},
               {'data': 'denum'},
               {'data': 'plan'},

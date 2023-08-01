@@ -95,41 +95,31 @@
                   <div class="modal-body">
                           <div class="form-group row" style="margin-bottom: 0px !important;">
                             
-                          <div class="col-6">
-                            <table class="table table-striped">
+                          <div class="col-12">
+                            <table class="table table-stripped">
                               <tr>
-                                <td class="pad-2">Nama Indikator</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_nama_indikator">coba</p></th>
+                                <td>Nama Indikator</td>
+                                <td>:</td>
+                                <td><p id="p_nama_indikator">nama indikator</p></td>
+                                <td>Numerator</td>
+                                <td>:</td>
+                                <td><p id="p_numerator">numerator</p></td>
                               </tr>
                               <tr>
-                                <td class="pad-2">Numerator</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_numerator">coba</p></th>
+                                <td>Denumerator</td>
+                                <td>:</td>
+                                <td><p id="p_denumerator">denumerator</p></td>
+                                <td>Target Capaian</td>
+                                <td>:</td>
+                                <td><p id="p_target">target capaian</p></td>
                               </tr>
                               <tr>
-                                <td class="pad-2">Denumerator</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_denumerator">coba</p></th>
-                              </tr>
-                            </table>
-                          </div>
-                          <div class="col-6">
-                            <table class="table table-striped">
-                              <tr>
-                                <td class="pad-2">Target Capaian</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_target">coba</p></th>
-                              </tr>
-                              <tr>
-                                <td class="pad-2">Formula</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_formula">coba</p></th>
-                              </tr>
-                              <tr>
-                                <td class="pad-2">Unit Kerja</td>
-                                <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <td>Formula</td>
+                                <td>:</td>
+                                <td><p id="p_formula">formula</p></td>
+                                <td>Unit Kerja</td>
+                                <td>:</td>
+                                <td><p id="p_unit_kerja">unit kerja</p></td>
                               </tr>
                             </table>
                           </div>
@@ -169,6 +159,10 @@
                                   <option value="desember">Desember</option>
                                 </select>
                             </div>
+                            <div class="col-md-12">
+                                <label class="col-md-12 col-form-label mini-text">File Pendukung</label>
+                                <input type="file" name="upload" id="upload" class="form-control">
+                              </div>
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Plan</label>
                                 <textarea class="form-control" name="plan" id="plan" placeholder="Masukan Plan" ></textarea>
@@ -185,6 +179,7 @@
                                 <label class="col-md-12 col-form-label mini-text">Action </label>
                                 <textarea class="form-control" name="action" id="action" placeholder="Masukan Action" ></textarea>
                               </div>
+                              
                               <div class="col-md-4">
                                  <input type="hidden" name="status" id="status" class="form-control" placeholder="Masukan Status" required>
                               </div>
@@ -197,36 +192,26 @@
                     
                     
                      <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" name="submit" id="submit">Tambah Capaian</button> 
-                            
-                          </div>
-                  <div class="modal-body">
-                  <table class="table table-striped" id="CapaianTable" style="min-width:100% !important;">
-                    <thead>
-                       <tr>
-                         <th>Laporan Bulan</th>
-                        <th>Numerator</th>
-                        <th>Denumerator</th>
-                        <th>Capaian</th>
-                        <th>Plan</th>
-                        <th>Do</th>
-                        <th>Study</th>
-                        <th>Action</th>
-                        <th>Status</th>
-                        <th>Tombol</th>
-                      </tr>
-                    </thead>
-                    <tbody>                      
-                    </tbody>
-                     <tfoot>
-                          <tr>
-                              <th colspan="9" style="text-align:right">Total:</th>
-                              <th></th>
-                          </tr>
-                    </tfoot>
-                    </table>
-                  </div>
-                  
+                        <button type="submit" class="btn btn-success" name="submit" id="submit">Tambah Capaian</button> 
+                    </div>
+                        <table class="table table-striped" id="CapaianTable" style="min-width:100% !important">
+                            <thead>
+                              <tr>
+                                  <th>Laporan Bulan</th>
+                                  <th>Numerator</th>
+                                  <th>Denumerator</th>
+                                  <th>Plan</th>
+                                  <th>Do</th>
+                                  <th>Study</th>
+                                  <th>Action</th>
+                                  <th>File Pendukung</th>
+                                  <th>Tombol</th>
+                            </tr>
+                            </thead>
+                            <tbody>                      
+                            </tbody>
+                            </table>
+                   
                 </div>
               </div>
             </div>
