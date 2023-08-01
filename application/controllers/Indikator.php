@@ -40,6 +40,18 @@ class Indikator extends CI_Controller {
         
         $this->load->view('indikator/index',$data);
     }
+	public function Validasi(){
+        $this->session_check();
+
+        $id_user =  $this->session->userdata('id_user');
+        // $role =  $this->session->userdata('role');
+        $result =  $this->M_User->getById($id_user);
+        
+        $data['profile'] = $result;
+        
+        
+        $this->load->view('indikator/validasi',$data);
+    }
 
 	function session_check(){
 		//var_dump($this->session->userdata('is_login'));die; 

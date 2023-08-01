@@ -101,6 +101,12 @@ class Master extends CI_Controller {
        echo json_encode($data);
 
     }
+     public function ambil_capaian(){
+        $baru =  $this->M_Master->ambil_capaian();
+        $data['data']=$baru;
+       echo json_encode($data);
+
+    }
     public function ambil_grup(){
         $baru =  $this->M_Master->ambil_grup();
         $data['data']=$baru;

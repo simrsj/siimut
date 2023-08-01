@@ -84,7 +84,7 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Realisasi Target Indikator</h5>
                     <div>
-                      <button  type="button" class="btn btn-success" name="btn-save-pengadaan" id="btn-save-pengadaan"><i class="fas fa-save"></i> Simpan Usulan</button> 
+                      <!-- <button  type="button" class="btn btn-success" name="btn-save-pengadaan" id="btn-save-pengadaan"><i class="fas fa-save"></i> Simpan Usulan</button>  -->
                             <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" name="btn-batal-pengadaan" id="btn-batal-pengadaan">
                       <!-- <span aria-hidden="true">&times;</span> -->
                        <i class="fa fa-times"></i>
@@ -98,33 +98,33 @@
                           <div class="col-6">
                             <table class="table table-striped">
                               <tr>
-                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">Nama Indikator</td>
                                 <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <th class="pad-2" style="width:80%;"><p id="p_nama_indikator">coba</p></th>
                               </tr>
                               <tr>
-                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">Numerator</td>
                                 <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <th class="pad-2" style="width:80%;"><p id="p_numerator">coba</p></th>
                               </tr>
                               <tr>
-                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">Denumerator</td>
                                 <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <th class="pad-2" style="width:80%;"><p id="p_denumerator">coba</p></th>
                               </tr>
                             </table>
                           </div>
                           <div class="col-6">
                             <table class="table table-striped">
                               <tr>
-                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">Target Capaian</td>
                                 <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <th class="pad-2" style="width:80%;"><p id="p_target">coba</p></th>
                               </tr>
                               <tr>
-                                <td class="pad-2">Unit Kerja</td>
+                                <td class="pad-2">Formula</td>
                                 <td class="pad-2">:</td>
-                                <th class="pad-2" style="width:80%;"><p id="p_unit_kerja">coba</p></th>
+                                <th class="pad-2" style="width:80%;"><p id="p_formula">coba</p></th>
                               </tr>
                               <tr>
                                 <td class="pad-2">Unit Kerja</td>
@@ -138,40 +138,55 @@
                         
                         <form id="form-tambah-barang" method="POST"  enctype="multipart/form-data">            
                           <div class="form-group row" style="margin-bottom: 0px !important;">
-                                <input type="hidden" name="kode_barang" id="kode_barang" class="form-control" placeholder="Kode Barang" >
-                                <input type="hidden" name="id_temp" id="id_temp" class="form-control" >
-                                <input type="hidden" name="jenis_belanja" id="jenis_belanja" value="0" class="form-control" >
-                              <div class="col-md-4">
+                                <input type="hidden" name="id_capaian" id="id_capaian" class="form-control" placeholder="Kode Barang" >
+                                <input type="hidden" name="id_indikator" id="id_indikator" class="form-control" >
+                              <div class="col-md-3">
                                 <label class="col-md-12 col-form-label mini-text">Tanggal</label>
                                <input type="date" name="tgl" id="tgl" class="form-control" required>
                                </div>
-                              <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Realisasi</label>
-                                <input type="text" name="realisasi" id="realisasi" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                              <div class="col-md-3">
+                                <label class="col-md-12 col-form-label mini-text">Numerator</label>
+                                <input type="text" name="numerator" id="numerator" class="form-control" placeholder="Jumlah Numerator" required>
                             </div>
-                            <div class="col-md-4">
+                              <div class="col-md-3">
+                                <label class="col-md-12 col-form-label mini-text">Denumerator</label>
+                                <input type="text" name="denumerator" id="denumerator" class="form-control" placeholder="Jumlah Denumerator" required>
+                            </div>
+                            <div class="col-md-3">
                                 <label class="col-md-12 col-form-label mini-text">Laporan Bulan</label>
-                                <input type="text" name="bulan" id="bulan" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                               <select name="bulan" id="bulan" class="form-control">
+                                  <option value="januari">Januari</option>
+                                  <option value="februari">Februari</option>
+                                  <option value="maret">Maret</option>
+                                  <option value="april">April</option>
+                                  <option value="mei">Mei</option>
+                                  <option value="juni">juni</option>
+                                  <option value="juli">Juli</option>
+                                  <option value="agustus">Agustus</option>
+                                  <option value="september">September</option>
+                                  <option value="oktober">Oktober</option>
+                                  <option value="november">November</option>
+                                  <option value="desember">Desember</option>
+                                </select>
                             </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Plan</label>
-                                <input type="text" name="plan" id="plan" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                                <textarea class="form-control" name="plan" id="plan" placeholder="Masukan Plan" ></textarea>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Do</label>
-                                <input type="text" name="do" id="do" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                                <textarea class="form-control" name="do" id="do" placeholder="Masukan Do" ></textarea>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Study </label>
-                                <input type="text" name="study" id="study" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                                <textarea class="form-control" name="study" id="study" placeholder="Masukan Study" ></textarea>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Action </label>
-                                <input type="text" name="action" id="action" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                                <textarea class="form-control" name="action" id="action" placeholder="Masukan Action" ></textarea>
                               </div>
                               <div class="col-md-4">
-                                <label class="col-md-12 col-form-label mini-text">Study </label>
-                                <input type="text" name="study" id="study" class="form-control" placeholder="Nama Rincian Belanja Pegawai" required>
+                                 <input type="hidden" name="status" id="status" class="form-control" placeholder="Masukan Status" required>
                               </div>
                                
                               </form>
@@ -181,24 +196,24 @@
                   </div>
                     
                     
-                  <div class="modal-footer">
-                  </div>
+                     <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" name="submit" id="submit">Tambah Capaian</button> 
+                            
+                          </div>
                   <div class="modal-body">
-                  <table class="table table-striped" id="DetailPengadaantempTable" style="min-width:100% !important;">
+                  <table class="table table-striped" id="CapaianTable" style="min-width:100% !important;">
                     <thead>
                        <tr>
-                        <th>Nama Program</th>
-                        <th>Nama Kegiatan</th>
-                        <th>Nama Subkegiatan</th>
-                        <th>Nama Uraian</th>
-                        <th>Nama Barang</th>
-                        <th>Kuantitas</th>
-                        <th>Harga</th>
-                        <th>Total harga</th>
-                        <th>Prioritas</th>
-                        <th>Catatan</th>
-                        <th>Dokumen Pendukung</th>
-                        <th>Aksi</th>
+                         <th>Laporan Bulan</th>
+                        <th>Numerator</th>
+                        <th>Denumerator</th>
+                        <th>Capaian</th>
+                        <th>Plan</th>
+                        <th>Do</th>
+                        <th>Study</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                        <th>Tombol</th>
                       </tr>
                     </thead>
                     <tbody>                      

@@ -72,6 +72,12 @@ class M_Master extends CI_Model {
     return $this->db->query($sql)->result();
             
     }
+    public function ambil_capaian(){
+      $data = $this->input->post();
+      $sql = "SELECT * FROM capaian where status = 0";
+    return $this->db->query($sql)->result();
+            
+    }
     public function ambil_grup(){
         // var_dump("grup");
         $sql = "SELECT * FROM groups";
