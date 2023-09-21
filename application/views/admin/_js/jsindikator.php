@@ -25,7 +25,7 @@ $(document).ready(function(){
                        
                         row.push({
                           'no'            : i,
-                          'nama_indikator'     : response.data[x].nama_indikator,
+                          'id_jenis'     : response.data[x].id_jenis,
                           'nama_indikator'     : response.data[x].nama_indikator,
                           'penanggung_jawab'     : response.data[x].penanggung_jawab,
                           'pengumpul_data'        : response.data[x].pengumpul_data,
@@ -44,7 +44,7 @@ $(document).ready(function(){
             },
             columns : [ 
               {'data': 'no'},
-              {'data': 'nama_indikator'},
+              {'data': 'id_jenis'},
               {'data': 'nama_indikator'},
               {'data': 'penanggung_jawab'},              
               {'data': 'pengumpul_data'},             

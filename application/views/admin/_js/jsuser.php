@@ -3,9 +3,9 @@
 
 $(document).ready(function(){
 
-         $('#grup').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
-         $('#status').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
-         $('#jenis').select2({'width': '-webkit-fill-available',dropdownParent: $('#Modal_Add')});
+         $('#grup').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
+         $('#status').select2({'width':  '100%',dropdownParent: $('#Modal_Add')});
+         $('#jenis').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
       
       
         ptable = $('#PenggunaTable').DataTable( {
@@ -107,6 +107,10 @@ $(document).ready(function(){
                            
             })
             function BukaEditPengguna(id){
+              $('#e_grup').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
+         $('#e_status').select2({'width':  '100%',dropdownParent: $('#Modal_Add')});
+         $('#e_jenis').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
+      
            //console.log(id);
             $.ajax({
                 type:"POST",
@@ -114,7 +118,7 @@ $(document).ready(function(){
                 dataType : "JSON",
                 data : {id:id},
                         success: function(data){
-                            console.log(data[0]);
+                            // console.log(data[0]);
                                                 
                             $('#e_id_user').val(data[0].id_user);
                             $('#e_nama_user').val(data[0].nama_user);
@@ -124,10 +128,10 @@ $(document).ready(function(){
                             $('#e_parent').val(data[0].parent);
                             $('#e_email').val(data[0].email);
                             $('#e_pass').val(data[0].password);
-                            $('[name="e_grup"]').val(0).trigger('change');
-                            $('[name="e_jenis"]').val(0).trigger('change');
-                            $('[name="e_status"]').val(0).trigger('change');
-                            
+                            $('#e_grup').val(data[0].id_grup).trigger('change');
+                            $('#e_status').val(data[0].status).trigger('change');
+                            $('#e_jenis').val(data[0].jenis).trigger('change');
+                           
                             $('#Modal_Edit_Pengguna').modal('show');
                             
                         }
@@ -138,6 +142,11 @@ $(document).ready(function(){
         }
             $('#form-edit-pengguna').submit(function() {
            // console.log('xx');
+           
+            $('#e_grup').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
+            $('#e_status').select2({'width':  '100%',dropdownParent: $('#Modal_Add')});
+            $('#e_jenis').select2({'width': '100%',dropdownParent: $('#Modal_Add')});
+      
                 var data =$('#form-edit-pengguna').serialize();
             
                 //tambah
@@ -148,8 +157,9 @@ $(document).ready(function(){
                     url  : "<?php echo base_url('Master/update_pengguna')?>",
                     data : data,
                     success: function(response){
-                       //console.log(response.data);
+                      //  console.log(response.data);
                         
+                       $('#e_grup').val(0).trigger('change');
                         $('[name="e_id"]').val("");
                         $('[name="e_unit_kerja"]').val("");
                         $('[name="e_ukl"]').val("");
@@ -157,6 +167,10 @@ $(document).ready(function(){
                         $('[name="e_pass"]').val("");
                         $('[name="e_bidang"]').val("");
                         $('[name="e_direksi"]').val("");
+                        $('#e_grup').val(0).trigger('change');
+                        $('#e_status').val(0).trigger('change');
+                        $('#e_jenis').val(0).trigger('change');
+                           
                         ptable.ajax.reload(null,false);
                         tata.success('Sukses', 'Data Berhasil Berubah .. ', {
                             duration: 3000
@@ -191,6 +205,25 @@ $(document).ready(function(){
                         
                         $.each(response.data, function(key,value){
                                 $('#grup').append(
+                                    $('<option></option>').val(value['id']).html(value['name'])
+                                );
+                        });        
+                        }
+                        
+            });
+            };
+            function ambilegrup(){
+            $.ajax ({
+                    // type: 'POST',
+                    url: '<?php echo base_url('Master/ambil_grup')?>',
+                    dataType: 'json',
+                    success: function(response){
+                      $('#e_grup').empty();
+
+                        $('#e_grup').append('<option value="0">- Pilih Grup -</option>');
+                        
+                        $.each(response.data, function(key,value){
+                                $('#e_grup').append(
                                     $('<option></option>').val(value['id']).html(value['name'])
                                 );
                         });        

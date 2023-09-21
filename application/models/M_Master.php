@@ -217,6 +217,7 @@ class M_Master extends CI_Model {
         $post = $this->input->post();
         $id = $post['id'];
         $sql = "SELECT * FROM Users 
+        JOIN Groups on Users.id_grup = Groups.id 
                 where Users.id_user = ".$id;
 
 

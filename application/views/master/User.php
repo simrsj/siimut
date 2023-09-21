@@ -182,10 +182,6 @@
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Role</label>
                                 <select name="e_grup" id="e_grup" class="form-control">
-                                  <option >- Pilih Role -<option>
-                                  <option value="1">Administrator<option>
-                                  <option value="3">PIC Mutu<option>
-                                  <option value="4">PJ Mutu<option>
                                 </select>
                               </div>
                               <div class="col-md-6">

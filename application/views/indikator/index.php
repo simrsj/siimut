@@ -49,7 +49,7 @@
                   <thead>
                       <tr>
                           <th>No</th>
-                          <th>Jenis Indikator </th>
+                          <th>Jenis Mutu </th>
                           <th>Nama Indikator </th>
                           <th>Unit Kerja</th>
                           <th>Pengumpul Data</th>
@@ -184,6 +184,10 @@
                               <div class="col-md-6">
                                 <label class="col-md-12 col-form-label mini-text">Action </label>
                                 <textarea class="form-control" name="action" id="action" placeholder="Masukan Action" ></textarea>
+                              </div>
+                              <div class="col-md-6 custom-file">
+                                <label class="col-md-12 col-form-label mini-text">file Pendukung </label>
+                                <input type="file" class="custom-file-input" name="upload" id="upload"  >
                               </div>
                               <div class="col-md-4">
                                  <input type="hidden" name="status" id="status" class="form-control" placeholder="Masukan Status" required>
