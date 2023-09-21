@@ -1,10 +1,12 @@
 <!-- Halaman Pengadaan  -->
 <script type="text/javascript">
-
+var ctable="";
 $(document).ready(function(){
 
          $('#jenis2').select2({dropdownParent: $('#Modal_Add')});
-       
+       ctable = $('#CapaianTable').DataTable( {
+        'sScrollX'      : '100%',
+     });
        
         ptable = $('#PenggunaTable').DataTable( {
             'processing'	: true,
@@ -151,47 +153,89 @@ $(document).ready(function(){
             
         }
             function BukaRealisasi(id){
-           //console.log(id);
-            $.ajax({
+        //    console.log(id);
+                ctable.destroy();
+                
+                 ctable = $('#CapaianTable').DataTable( {
+                    'processing'	: true,
+                    'scrollX'   :true,
+                    //'serverSide'	: true,
+                    'responsive': true, 
+                    ajax:{
+                        type:"POST",
+                        url   : '<?php echo base_url('Master/get_id_capaian')?>',
+                        dataType : "JSON",
+                        data : {id:id},
+        
+                        dataSrc : function(response){
+                        var row = new Array();
+                        var i = 1;
+                        var button;
+                        var hitung = response.length;
+                        // console.log(response.length);
+                        // console.log(response);
+                        if (hitung>0) {
+                            // console.log("masuk");
+                            // console.log(response.data);
+                            for(var x in response){
+                                button = '<button onClick="BukaCapaian('+response[x].id_capaian+')" name="btn_edit" class="btn btn-outline-warning btn-block btn-sm" title="Edit Kamus"><i class="fa fa-edit" aria-hidden="true"></i>';
+                            
+                                row.push({
+                                'bulan'                 : response[x].bulan,
+                                'num'                   : response[x].num,
+                                'denum'                 : response[x].denum,
+                                'plan'                  : response[x].plan,
+                                'do'                    : response[x].do,
+                                'study'                 : response[x].study,
+                                'action'                : response[x].action,
+                                'file_pendukung'        : response[x].file_pendukung,
+                                'button'                : button,
+                                });
+                                i = i + 1;
+                            }
+                                    
+                            response.data = row;
+                            return row;
+                            } else{
+                            response.draw = 0;
+                            return [];
+                            }
+                        }
+                    },
+                    columns : [ 
+                    {'data': 'bulan'},
+                    {'data': 'num'},
+                    {'data': 'denum'},
+                    {'data': 'plan'},
+                    {'data': 'do'},
+                    {'data': 'study'},
+                    {'data': 'action'},
+                    {'data': 'file_pendukung'},
+                    {'data': 'button'},
+                    
+                    
+                    ],
+                        
+                });         
+            
+           $.ajax({
                 type:"POST",
                 url  : "<?php echo base_url('Master/get_id_kamus')?>",
                 dataType : "JSON",
                 data : {id:id},
                         success: function(data){
                             // console.log(data[0]);
-                                                
-                            $('#e_id_kamus').val(data[0].id_kamus);
-                            $('#e_nama_indikator').val(data[0].nama_indikator);
-                            $('#e_perspektif').val(data[0].perspektif);
-                            $('#e_sas_stra').val(data[0].sasaran_strategis);
-                            $('#e_bobot').val(data[0].bobot_kpi);
-                            $('#e_alasan').val(data[0].alasan);
-                            $('#e_definisi').val(data[0].definisi);
-                            $('#e_numerator').val(data[0].numerator);
-                            $('#e_denumerator').val(data[0].denumerator);
-                            $('#e_formula').val(data[0].formula);
-                            $('#e_inklusi').val(data[0].inklusi);
-                            $('#e_ekslusi').val(data[0].ekslusi);
-                            $('#e_tipe_indikator').val(data[0].tipe_indikator);
-                            $('#e_sumber_data').val(data[0].sumber_data);
-                            $('#e_sampel').val(data[0].sampel);
-                            $('#e_rencana_analisis').val(data[0].rencana_analisis);
-                            $('#e_wilayah').val(data[0].wilayah_pengamatan);
-                            $('#e_metode').val(data[0].metode_pengumpulan);
-                            $('#e_PJ').val(data[0].penanggung_jawab);
-                            $('#e_pengumpul_data').val(data[0].pengumpul_data);
-                            $('#e_frekuensi').val(data[0].frekuensi);
-                            $('#e_periode').val(data[0].periode_pelaporan);
-                            $('#e_rencana').val(data[0].rencana_penyebaran);
-                            $('#e_formulir').val(data[0].formulir_pengumpulan);
-                            $('#e_t1').val(data[0].target_ke_n);
-                            $('#e_t2').val(data[0].target_ke_n1);
-                            $('#e_t3').val(data[0].target_ke_n2);
-                            $('#e_t4').val(data[0].target_ke_n3);
-                            $('#e_t5').val(data[0].target_ke_n4);
-                            $('#e_user').val(data[0].id_user);
-                            $('#e_jenis').val(data[0].id_jenis);
-
+                        
+                                                            
+                         
+                          $('#p_nama_indikator'). html(data[0].nama_indikator);
+                            $('#p_numerator').  html(data[0].numerator);
+                            $('#p_denumerator').    html(data[0].denumerator);
+                            $('#p_target'). html(data[0].target_ke_n +' %');
+                            $('#p_formula').    html(data[0].formula);
+                            $('#p_unit_kerja'). html(data[0].id_user);
+                            ctable.ajax.reload(null,false);
+                          
                             
                             $('#Modal_Add').modal('show');
                             

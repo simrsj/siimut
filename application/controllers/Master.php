@@ -146,6 +146,11 @@ class Master extends CI_Controller {
        // $data['data']=$baru;
 		echo json_encode($data);
     }
+    public function get_id_capaian(){
+        $data =  $this->M_Master->get_id_capaian();
+       // $data['data']=$baru;
+		echo json_encode($data);
+    }
       public function save_kamus(){
         $baru =  $this->M_Master->save_kamus();
         $data['data']=$baru;

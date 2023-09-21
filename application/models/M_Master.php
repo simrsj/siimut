@@ -74,7 +74,9 @@ class M_Master extends CI_Model {
     }
     public function ambil_capaian(){
       $data = $this->input->post();
-      $sql = "SELECT * FROM capaian where status = 0";
+      $sql = "SELECT * FROM capaian 
+            JOIN kamus on capaian.id_kamus = kamus.id_kamus
+      where status = 0";
     return $this->db->query($sql)->result();
             
     }
@@ -233,6 +235,21 @@ class M_Master extends CI_Model {
         $id = $post['id'];
         $sql = "SELECT * FROM Kamus 
                 where Kamus.id_kamus = ".$id;
+
+
+    	return $this->db->query($sql)->result();
+        
+        
+        // $this->db->where(["id_temp_pengadaan" => $id]);
+        // return $this->db->get($this->_table)->result();
+    }
+     public function get_id_capaian()
+    {
+        $post = $this->input->post();
+        $id = $post['id'];
+        $sql = "SELECT * FROM Capaian
+                JOIN Kamus on Capaian.id_kamus = Kamus.id_kamus 
+                where Capaian.id_kamus = ".$id;
 
 
     	return $this->db->query($sql)->result();
